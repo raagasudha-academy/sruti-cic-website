@@ -46,8 +46,8 @@ p { line-height: 1.7; }
 .brand { display:flex; align-items:center; gap:10px; text-decoration:none; margin-right:auto; min-width:145px; }
 .brand img { width:58px; height:64px; object-fit:contain; flex:none; }
 .brand-copy { display:flex; flex-direction:column; line-height:1; }
-.brand-copy strong { font-family:"Libre Baskerville",serif; font-size:1.02rem; color:var(--forest); }
-.brand-copy span { font-size:.64rem; letter-spacing:.16em; color:#7b6a4c; margin-top:5px; }
+.brand-copy strong { font-family:"Libre Baskerville",serif; font-size:1.6rem; color:var(--forest); }
+.brand-copy span { font-size:.9rem; letter-spacing:.16em; color:#7b6a4c; margin-top:5px; }
 .desktop-nav { display:flex; gap:clamp(13px,1.45vw,24px); align-items:center; }
 .desktop-nav a { text-decoration:none; font-size:.82rem; font-weight:650; color:#52605b; white-space:nowrap; position:relative; }
 .desktop-nav a:hover,.desktop-nav a.active { color:var(--forest); }
@@ -55,11 +55,11 @@ p { line-height: 1.7; }
 .header-cta { text-decoration:none; background:var(--forest); color:white; border-radius:999px; padding:11px 16px; font-size:.8rem; font-weight:700; white-space:nowrap; }
 .menu-button,.mobile-nav { display:none; }
 
-.home-hero { min-height:660px; position:relative; display:flex; align-items:center; overflow:hidden; }
+.home-hero { min-height:400px; position:relative; display:flex; align-items:center; overflow:hidden; }
 .home-hero > img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center; }
 .hero-shade { position:absolute; inset:0; background:linear-gradient(90deg,rgba(8,31,25,.88),rgba(8,31,25,.61) 43%,rgba(8,31,25,.1) 78%); }
 .home-hero-copy { position:relative; z-index:2; color:white; width:min(700px,88%); margin-left:max(6vw,28px); padding:80px 0; }
-.home-hero-copy h1 { font-size:clamp(3.7rem,7vw,7rem); line-height:.98; margin-bottom:24px; }
+.home-hero-copy h1 { font-size:clamp(2.8rem, 5vw, 4.8rem); line-height:.98; margin-bottom:24px; }
 .home-hero-copy > p:not(.eyebrow) { max-width:640px; font-size:1.08rem; color:rgba(255,255,255,.9); }
 .eyebrow { color:#9b6c29; text-transform:uppercase; letter-spacing:.15em; font-size:.69rem; font-weight:800; margin-bottom:14px; }
 .eyebrow-light { color:var(--gold-soft); }
@@ -243,12 +243,12 @@ p { line-height: 1.7; }
 @media (max-width: 760px) {
   .site-header { height:76px; }
   .brand img { width:52px; height:56px; }
-  .brand-copy strong { font-size:.9rem; }
+  .brand-copy strong { font-size:1.2rem; }
   .mobile-nav { top:76px; }
   .home-hero { min-height:650px; }
   .hero-shade { background:linear-gradient(0deg,rgba(8,31,25,.92),rgba(8,31,25,.24)); }
   .home-hero-copy { align-self:flex-end; margin:0 22px; padding:65px 0; }
-  .home-hero-copy h1 { font-size:clamp(3.2rem,14vw,5rem); }
+  .home-hero-copy h1 { font-size:clamp(2.5rem, 11vw, 4rem); }
   .values-ribbon { overflow-x:auto; justify-content:flex-start; }
   .values-ribbon span { white-space:nowrap; }
   .section { width:calc(100% - 36px); padding:70px 0; }
@@ -431,10 +431,10 @@ body {
 
 .home-hero .hero-shade {
   background: linear-gradient(
-    90deg,
-    rgba(13, 29, 42, .91) 0%,
-    rgba(23, 42, 58, .69) 43%,
-    rgba(23, 42, 58, .12) 78%
+          90deg,
+          rgba(13, 29, 42, .91) 0%,
+          rgba(23, 42, 58, .69) 43%,
+          rgba(23, 42, 58, .12) 78%
   );
 }
 
@@ -669,9 +669,806 @@ body {
 @media (max-width: 760px) {
   .home-hero .hero-shade {
     background: linear-gradient(
-      0deg,
-      rgba(13, 29, 42, .94),
-      rgba(23, 42, 58, .25)
+            0deg,
+            rgba(13, 29, 42, .94),
+            rgba(23, 42, 58, .25)
+    );
+  }
+}
+
+/* =========================================================
+   OUR TEACHERS
+   ========================================================= */
+
+.teachers-section {
+  padding-top: 72px;
+  padding-bottom: 72px;
+}
+
+.teachers-heading {
+  margin-bottom: 32px;
+}
+
+.teachers-heading .eyebrow {
+  margin-bottom: 8px;
+}
+
+.teachers-heading h2 {
+  margin: 0;
+  font-family: "Libre Baskerville", serif;
+  font-size: clamp(2rem, 3vw, 3rem);
+  line-height: 1.1;
+  color: var(--navy);
+}
+
+.teacher-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  align-items: stretch;
+}
+
+.teacher-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+}
+
+.teacher-photo,
+.teacher-photo-placeholder {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  flex-shrink: 0;
+}
+
+.teacher-photo {
+  overflow: hidden;
+  background: var(--mist);
+}
+
+.teacher-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 4%;
+  transform: translateX(0%) scale(1);
+}
+
+.teacher-photo-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--mist);
+  color: var(--slate);
+}
+
+.teacher-photo-placeholder svg {
+  width: 24px;
+  height: 24px;
+}
+
+.teacher-photo-placeholder span {
+  font-size: .58rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.teacher-card-copy {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 24px;
+}
+
+.teacher-role {
+  margin: 0 0 8px;
+  color: var(--copper);
+  font-size: .65rem;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.teacher-card h3 {
+  margin: 0 0 20px;
+  font-family: "Libre Baskerville", serif;
+  font-size: 1.25rem;
+  line-height: 1.25;
+  color: var(--navy);
+}
+
+.teacher-detail {
+  padding: 11px 0;
+  border-top: 1px solid var(--line);
+}
+
+.teacher-detail span {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--muted);
+  font-size: .62rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.teacher-detail p {
+  margin: 0;
+  color: var(--ink);
+  font-size: .82rem;
+  line-height: 1.5;
+}
+
+.vedanta-teachers-section {
+  padding-top: 20px;
+  padding-bottom: 80px;
+}
+
+.teacher-grid-featured {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+@media (max-width: 900px) {
+  .teacher-grid,
+  .teacher-grid-featured {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .teachers-section {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  .vedanta-teachers-section {
+    padding-top: 10px;
+    padding-bottom: 60px;
+  }
+
+  .teachers-heading {
+    margin-bottom: 24px;
+  }
+
+  .teacher-grid,
+  .teacher-grid-featured {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .teacher-photo,
+  .teacher-photo-placeholder {
+    aspect-ratio: 16 / 10;
+  }
+
+  .teacher-card-copy {
+    padding: 20px;
+  }
+
+  .teacher-card h3 {
+    font-size: 1.18rem;
+  }
+}
+
+/* =========================================================
+   FINAL INNER PAGE MASTHEAD
+   Same styling across Events, Classes, Community,
+   Teachers, About and Governance
+   ========================================================= */
+
+.page-intro,
+.page-intro-accent {
+  background: #29495a;
+  color: #fff;
+  border-bottom: 1px solid #29495a;
+}
+
+.page-intro h1,
+.page-intro-accent h1 {
+  color: #fff;
+}
+
+.page-intro .page-intro-copy,
+.page-intro-accent .page-intro-copy {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.page-intro .eyebrow,
+.page-intro-accent .eyebrow {
+  color: #e7b59c;
+}
+
+.page-intro::after,
+.page-intro-accent::after {
+  color: rgba(255, 255, 255, 0.045);
+}
+
+/* =========================================================
+   CLASSES — HOW LEARNING WORKS
+   ========================================================= */
+
+.class-learning {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: clamp(50px, 8vw, 110px);
+  align-items: start;
+}
+
+.class-learning-intro {
+  position: sticky;
+  top: 125px;
+  align-self: start;
+}
+
+.class-learning-intro > p:last-child {
+  color: var(--muted);
+  max-width: 520px;
+}
+
+.class-learning-intro h2 {
+  margin-bottom: 24px;
+}
+
+.class-learning-steps {
+  border-top: 1px solid var(--line);
+}
+
+.class-learning-steps article {
+  display: grid;
+  grid-template-columns: 45px 1fr;
+  gap: 20px;
+  padding: 30px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.class-learning-steps article > span {
+  color: var(--copper);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.class-learning-steps h3 {
+  font-family: "Libre Baskerville", serif;
+  margin: 0 0 7px;
+  font-size: 1.25rem;
+  color: var(--navy);
+}
+
+.class-learning-steps p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+@media (max-width: 760px) {
+  .class-learning {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .class-learning-intro {
+    position: static;
+  }
+}
+
+/* =========================================================
+   FINAL CONTENT POLISH — Classes + About/Governance
+   ========================================================= */
+
+/* Keep the Classes page compact without changing spacing site-wide. */
+.class-learning {
+  padding-bottom: 58px;
+}
+
+.classes-section {
+  padding-top: 52px;
+}
+
+.children-heading {
+  margin-top: 68px;
+}
+
+/* Governance now lives within About, so separate it gently from principles. */
+.about-governance {
+  padding-top: 32px;
+}
+
+.about-governance .section-heading {
+  margin-bottom: 34px;
+}
+
+@media (max-width: 760px) {
+  .class-learning {
+    padding-bottom: 42px;
+  }
+
+  .classes-section {
+    padding-top: 38px;
+  }
+
+  .children-heading {
+    margin-top: 54px;
+  }
+
+  .about-governance {
+    padding-top: 20px;
+  }
+}
+.home-hero .hero-shade {
+  background: linear-gradient(
+          90deg,
+          rgba(15, 61, 69, .95) 0%,
+          rgba(25, 88, 95, .82) 40%,
+          rgba(38, 105, 108, .42) 64%,
+          rgba(38, 105, 108, .08) 82%
+  );
+}
+
+.home-hero-copy .eyebrow {
+  font-size: clamp(.78rem, 2vw, .96rem);
+  line-height: 1.35;
+  letter-spacing: .16em;
+  font-weight: 800;
+  color: #f1a06f;
+  margin-bottom: 16px;
+}
+
+.home-hero-copy h1 {
+  font-size: clamp(2.5rem, 3.3vw, 4.1rem);
+  line-height: .96;
+  max-width: 15ch;
+  color: #fffdf8;
+  margin-bottom: 24px;
+}
+
+.home-hero-copy > p:not(.eyebrow) {
+  color: rgba(255, 255, 255, .94);
+}
+
+@media (max-width: 760px) {
+  .home-hero {
+    min-height: 480px;
+  }
+
+  .home-hero-copy {
+    align-self: center;
+    margin: 0 22px;
+    padding: 38px 0;
+  }
+  .home-hero .hero-shade {
+    background: linear-gradient(
+            0deg,
+            rgba(13, 53, 61, .96) 0%,
+            rgba(24, 80, 87, .70) 48%,
+            rgba(34, 100, 102, .20) 100%
+    );
+  }
+
+  .home-hero-copy .eyebrow {
+    font-size: .76rem;
+  }
+
+  .home-hero-copy h1 {
+    font-size: clamp(3rem, 10vw, 4.6rem);
+    max-width: 12ch;
+  }
+}
+
+
+/* =========================================================
+   ŚRUTI — TEMPLE WEDDING FESTIVAL PALETTE
+   Inspired by colourful Indian temple weddings:
+   kumkum red, rani pink, marigold, peacock green, and warm ivory.
+   Bright, festive, welcoming, and still readable.
+   ========================================================= */
+
+:root {
+  --kumkum: #B83A4B;
+  --kumkum-deep: #8B243E;
+  --rani: #D95B83;
+  --marigold: #E7B43D;
+  --haldi: #F6D87A;
+  --peacock: #2E6E68;
+  --peacock-soft: #4D8C82;
+  --ivory: #FFF8F1;
+  --cream: #F9EFE4;
+  --blush: #FCE6EA;
+  --mint-soft: #E8F1EE;
+  --ink: #342A2E;
+  --muted: #6D6668;
+  --line: #E8D8D4;
+  --white: #FFFDF9;
+
+  /* map existing site variables */
+  --forest: var(--peacock);
+  --forest-2: var(--peacock-soft);
+  --navy: var(--kumkum-deep);
+  --slate: #7B6B71;
+  --cream-2: #F3E6DA;
+  --paper: var(--white);
+  --porcelain: var(--ivory);
+  --mist: var(--mint-soft);
+  --gold: var(--marigold);
+  --gold-soft: var(--haldi);
+  --copper: var(--kumkum);
+  --copper-soft: #EEA1B5;
+  --terracotta: #C55B54;
+}
+
+/* ---------- Global ---------- */
+
+body {
+  background: var(--white);
+  color: var(--ink);
+}
+
+::selection {
+  background: var(--haldi);
+  color: var(--kumkum-deep);
+}
+
+/* ---------- Header / nav ---------- */
+
+.site-header {
+  background: rgba(255, 253, 249, .98);
+  border-bottom-color: rgba(139, 36, 62, .08);
+}
+
+.brand-copy strong,
+.desktop-nav a:hover,
+.desktop-nav a.active,
+.inline-link,
+.path-card > span,
+.schedule-name h3,
+.dharma-stats strong,
+.location-card small,
+.teacher-card h3,
+.class-learning-steps h3 {
+  color: var(--kumkum-deep);
+}
+
+.brand-copy span {
+  color: var(--kumkum);
+}
+
+.desktop-nav a {
+  color: #655E61;
+}
+
+.desktop-nav a.active::after {
+  background: var(--marigold);
+}
+
+.header-cta,
+.button-dark {
+  background: var(--kumkum-deep);
+  color: #fff;
+}
+
+/* ---------- Home hero ---------- */
+
+.home-hero .hero-shade {
+  background: linear-gradient(
+          90deg,
+          rgba(139, 36, 62, .94) 0%,
+          rgba(184, 58, 75, .82) 34%,
+          rgba(217, 91, 131, .42) 62%,
+          rgba(231, 180, 61, .10) 82%
+  );
+}
+
+.home-hero-copy .eyebrow,
+.eyebrow-light {
+  color: var(--haldi);
+}
+
+.home-hero-copy h1 {
+  color: #FFFDF9;
+}
+
+.home-hero-copy > p:not(.eyebrow) {
+  color: rgba(255, 253, 249, .94);
+}
+
+.button-gold {
+  background: var(--marigold);
+  color: #5A3114;
+}
+
+.button-gold:hover {
+  background: #F0C85C;
+}
+
+.button-outline {
+  border-color: rgba(255,255,255,.58);
+  color: #FFFDF9;
+}
+
+/* ---------- Values ribbon ---------- */
+
+.values-ribbon {
+  background: var(--peacock);
+  color: #FFF9F2;
+}
+
+.values-ribbon span:not(:last-child)::after {
+  color: var(--marigold);
+}
+
+/* ---------- Small accents ---------- */
+
+.eyebrow,
+.teacher-role,
+.section-number,
+.principles span,
+.step-number,
+.director-list span,
+.path-card > svg,
+.community-panel > svg,
+.location-card > svg,
+.event-detail-list svg,
+.class-learning-steps article > span {
+  color: var(--kumkum);
+}
+
+/* ---------- Inner-page mastheads ---------- */
+
+.page-intro,
+.page-intro-accent {
+  background: linear-gradient(
+          110deg,
+          var(--kumkum-deep) 0%,
+          var(--kumkum) 40%,
+          var(--rani) 100%
+  );
+  color: #fff;
+  border-bottom: 1px solid var(--kumkum-deep);
+}
+
+.page-intro h1,
+.page-intro-accent h1 {
+  color: #FFFDF9;
+}
+
+.page-intro .page-intro-copy,
+.page-intro-accent .page-intro-copy {
+  color: rgba(255, 253, 249, .90);
+}
+
+.page-intro .eyebrow,
+.page-intro-accent .eyebrow {
+  color: var(--haldi);
+}
+
+.page-intro::after,
+.page-intro-accent::after {
+  color: rgba(255, 255, 255, .06);
+}
+
+/* ---------- Light surfaces ---------- */
+
+.latest-card,
+.location-card,
+.directors-panel,
+.event-feature {
+  background: var(--ivory);
+}
+
+.path-card,
+.teacher-card,
+.schedule-row {
+  background: #fff;
+  border-color: var(--line);
+}
+
+.path-card:hover,
+.schedule-row:hover {
+  border-color: #E7B8C5;
+  box-shadow: 0 16px 38px rgba(139, 36, 62, .08);
+}
+
+.latest-copy h3,
+.event-feature-copy h3 {
+  color: var(--kumkum);
+}
+
+.step-icon,
+.teacher-photo,
+.teacher-photo-placeholder {
+  background: var(--mint-soft);
+}
+
+/* ---------- Decorative / child-friendly details ---------- */
+
+.badges span {
+  background: #F9E7AC;
+  color: #6B4F18;
+}
+
+.badges .badge-muted {
+  background: #F4EFF0;
+  color: var(--muted);
+}
+
+.badges .badge-stat {
+  background: #F9D4C6;
+  color: #824335;
+}
+
+.class-note {
+  border-left-color: var(--kumkum);
+  background: #FFF3F4;
+}
+
+.event-labels span {
+  background: #F9E7AC;
+  color: #6E5317;
+}
+
+.community-panel {
+  background: #FDF0F3;
+}
+
+.community-panel-warm {
+  background: #FFF0D5;
+}
+
+/* ---------- Strong section bands ---------- */
+
+.maxim-band,
+.learn-beyond,
+.service-feature,
+.safeguarding-card {
+  background: var(--peacock);
+}
+
+.maxim-band span,
+.beyond-list svg,
+.service-copy > svg,
+.governance-icon,
+.service-numbers strong {
+  color: var(--haldi);
+}
+
+/* ---------- Join CTA ---------- */
+
+.join-section {
+  background: linear-gradient(
+          90deg,
+          var(--kumkum) 0%,
+          var(--rani) 100%
+  );
+}
+
+.join-section .eyebrow {
+  color: var(--haldi);
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  background: var(--kumkum-deep);
+  color: #FFF8F1;
+}
+
+.footer-identity h3,
+.footer-links a {
+  color: #FFFDF9;
+}
+
+.footer-identity p,
+.footer-links a:hover {
+  color: var(--haldi);
+}
+
+.footer-maxims {
+  color: #FBE8B3;
+}
+
+.footer-links > span,
+.footer-bottom {
+  color: rgba(255, 255, 255, .70);
+}
+
+.footer-bottom {
+  border-top-color: rgba(255, 255, 255, .14);
+}
+
+/* ---------- Mobile hero ---------- */
+
+@media (max-width: 760px) {
+  .home-hero .hero-shade {
+    background: linear-gradient(
+            0deg,
+            rgba(139, 36, 62, .97) 0%,
+            rgba(184, 58, 75, .84) 48%,
+            rgba(217, 91, 131, .22) 100%
+    );
+  }
+}
+
+
+/* =========================================================
+   REMOVE PEACOCK GREEN
+   Replace green structural areas with rich rose / plum tones
+   while keeping kumkum, rani pink, marigold and ivory.
+   ========================================================= */
+
+:root {
+  --peacock-deep: #8B243E;
+  --peacock: #A63A56;
+  --peacock-soft: #C15B75;
+
+  --forest: #8B243E;
+  --forest-2: #A63A56;
+  --navy: #8B243E;
+  --slate: #A66A78;
+}
+
+/* Structural dark areas */
+.values-ribbon {
+  background: #A63A56;
+}
+
+.maxim-band,
+.learn-beyond,
+.service-feature,
+.safeguarding-card {
+  background: #8B243E;
+}
+
+/* Footer */
+.site-footer {
+  background: #6F1F35;
+}
+
+/* Inner mastheads use rose family only */
+.page-intro,
+.page-intro-accent {
+  background: linear-gradient(
+          110deg,
+          #8B243E 0%,
+          #B83A4B 48%,
+          #D95B83 100%
+  );
+}
+
+/* Home hero loses the green tint entirely */
+.home-hero .hero-shade {
+  background: linear-gradient(
+          90deg,
+          rgba(139, 36, 62, .94) 0%,
+          rgba(184, 58, 75, .82) 38%,
+          rgba(217, 91, 131, .42) 64%,
+          rgba(231, 180, 61, .10) 82%
+  );
+}
+
+/* Supporting panels use blush/ivory instead of mint */
+.step-icon,
+.teacher-photo,
+.teacher-photo-placeholder {
+  background: #FBE9ED;
+}
+
+.community-panel {
+  background: #FFF0F3;
+}
+
+@media (max-width: 760px) {
+  .home-hero .hero-shade {
+    background: linear-gradient(
+            0deg,
+            rgba(139, 36, 62, .97) 0%,
+            rgba(184, 58, 75, .84) 48%,
+            rgba(217, 91, 131, .22) 100%
     );
   }
 }

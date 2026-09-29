@@ -10,7 +10,6 @@ import {
   Leaf,
   MapPin,
   Menu,
-  Music2,
   ShieldCheck,
   Sparkles,
   Theater,
@@ -23,6 +22,7 @@ import "./styles.css";
 import srutiLogo from "./assets/sruti-logo.png";
 import heroImage from "./assets/hero-community.png";
 import hanumanEventImage from "./assets/hanuman-event.png";
+import praveenaPhoto from "./assets/praveena-photo.png";
 
 const registrationUrl = "https://forms.gle/jQNqhpzxRc2yqnE79";
 const hanumanRegistrationUrl = "https://forms.gle/c7pAa1Pei337EoUn7";
@@ -32,19 +32,77 @@ const hanumanFaqUrl =
 const navItems = [
   ["Home", "/"],
   ["Latest Events", "/events"],
-  ["About", "/about"],
-  ["Learn", "/learn"],
   ["Classes", "/classes"],
   ["Community", "/community"],
-  ["Governance", "/governance"],
+  ["Our Teachers", "/teachers"],
+  ["About", "/about"],
 ];
 
 const principles = [
   ["Love", "Care for one another with compassion."],
   ["Peace", "Nurture calmness, understanding and harmony."],
   ["Truth", "Value sincerity and truthfulness."],
-  ["Right conduct", "Put good values into everyday action."],
+  ["Right Conduct", "Put good values into everyday action."],
   ["Non-violence", "Respect others through thought, word and action."],
+];
+
+const teachers = [
+  {
+    photo: praveenaPhoto,
+    name: "Mrs Praveena Srikailash",
+    role: "Vedam Teacher",
+    teaches: "To be added",
+    about: "Teacher profile to be added.",
+    languages: "To be added",
+  },
+  {
+    photo: "",
+    name: "Ms Swathi Komaraolu",
+    role: "Vedam Teacher",
+    teaches: "To be added",
+    about: "Teacher profile to be added.",
+    languages: "To be added",
+  },
+  {
+    photo: "",
+    name: "Dr Uma Geethanath",
+    role: "Vedam Teacher",
+    teaches: "To be added",
+    about: "Teacher profile to be added.",
+    languages: "To be added",
+  },
+  {
+    photo: "",
+    name: "Dr Aishwarya Amarnath",
+    role: "Vedam Teacher",
+    teaches: "To be added",
+    about: "Teacher profile to be added.",
+    languages: "To be added",
+  },
+  {
+    photo: "",
+    name: "Mr Vibhas Chengalavala",
+    role: "Vedam Teacher",
+    teaches: "To be added",
+    about: "Teacher profile to be added.",
+    languages: "To be added",
+  },
+  {
+    photo: "",
+    name: "Mrs Amruta Hasa",
+    role: "Vedam Teacher",
+    teaches: "To be added",
+    about: "Teacher profile to be added.",
+    languages: "To be added",
+  },
+  {
+    photo: "",
+    name: "Mr Srikailash Venkitadri",
+    role: "Vedanta Teacher",
+    teaches: "Vedanta",
+    about: "Teacher profile to be added.",
+    languages: "To be added",
+  },
 ];
 
 const adultSessions = [
@@ -135,12 +193,6 @@ type PathCardProps = {
   children: ReactNode;
 };
 
-type LearningStepProps = {
-  number: string;
-  title: string;
-  icon: LucideIcon;
-  children: ReactNode;
-};
 
 type Session = {
   name: string;
@@ -237,13 +289,13 @@ function Home() {
             <a className="button button-gold" href={registrationUrl} target="_blank" rel="noreferrer">
               Join a Class / Enquire <ArrowRight size={17} />
             </a>
-            <AppLink to="/learn" className="button button-ghost">Explore learning</AppLink>
+            <AppLink to="/classes" className="button button-ghost">Explore learning</AppLink>
           </div>
         </div>
       </section>
 
       <div className="values-ribbon">
-        {["Love", "Peace", "Truth", "Right conduct", "Non-violence"].map((value) => (
+        {["Love", "Peace", "Truth", "Right Conduct", "Non-violence"].map((value) => (
           <span key={value}>{value}</span>
         ))}
       </div>
@@ -291,7 +343,7 @@ function Home() {
       <section className="section">
         <SectionHeading eyebrow="Ways to take part" title="Learn. Reflect. Create. Serve." />
         <div className="path-grid">
-          <PathCard icon={BookOpen} title="Vedic Learning" to="/learn">
+          <PathCard icon={BookOpen} title="Vedic Learning" to="/classes">
             Vedic mantras are taught through repetition by trained teachers, with meanings explained to students.
           </PathCard>
           <PathCard icon={Sparkles} title="Dharma Sundays" to="/community">
@@ -303,6 +355,24 @@ function Home() {
           <PathCard icon={HeartHandshake} title="Selfless Service" to="/community">
             Food service, care for elderly people and tree planting form part of Śruti's community work.
           </PathCard>
+        </div>
+      </section>
+
+      <section className="section teacher-preview">
+        <div className="teacher-preview-copy">
+          <p className="eyebrow">Our Teachers</p>
+          <h2>Guided by people who make learning personal.</h2>
+          <p>
+            Meet the teachers who support Vedam and Vedanta learning across Śruti&apos;s
+            face-to-face and online sessions.
+          </p>
+          <AppLink to="/teachers" className="inline-link">
+            Meet our teachers <ArrowRight size={16} />
+          </AppLink>
+        </div>
+        <div className="teacher-preview-mark" aria-hidden="true">
+          <UsersRound size={54} />
+          <span>Learn · Guide · Grow</span>
         </div>
       </section>
 
@@ -383,7 +453,7 @@ function About() {
         </div>
         <div className="body-copy">
           <p>
-            Śruti CIC is based on the principles of Love, Peace, Truth, Right conduct and Non-violence.
+            Śruti CIC is based on the principles of Love, Peace, Truth, Right Conduct and Non-violence.
             The knowledge of the Vedas is not restricted to one religion.
           </p>
           <p>
@@ -411,55 +481,31 @@ function About() {
           ))}
         </div>
       </section>
-    </>
-  );
-}
 
-function Learn() {
-  return (
-    <>
-      <PageIntro
-        eyebrow="Learn"
-        title="Learning Vedas & Vedanta"
-        copy="Learning through repetition, understanding and values — in person and online."
-      />
+      <section className="section about-governance">
+        <SectionHeading eyebrow="Governance & Safeguarding" title="Care, protection and stewardship." />
+        <div className="governance-layout">
+          <article className="safeguarding-card">
+            <div className="governance-icon"><ShieldCheck /></div>
+            <p className="eyebrow eyebrow-light">Safeguarding</p>
+            <h2>Protection of children and young people.</h2>
+            <p>
+              Śruti believes that no child or young person should experience abuse or harm
+              and is committed to their protection.
+            </p>
+          </article>
 
-      <section className="section learn-story">
-        <div className="learn-intro">
-          <p className="eyebrow">How learning works</p>
-          <h2>Chant. Understand. Live.</h2>
-          <p>
-            Vedic mantras are taught by trained teachers through repetition. Meanings of the scriptures
-            are explained so that students can understand the values within them.
-          </p>
-        </div>
-        <div className="learning-steps">
-          <LearningStep number="01" title="Listen & repeat" icon={Music2}>
-            Learn Vedic mantras through guided repetition in face-to-face or online sessions.
-          </LearningStep>
-          <LearningStep number="02" title="Understand" icon={BookOpen}>
-            Explore the meaning of the scriptures alongside the learning of the mantras.
-          </LearningStep>
-          <LearningStep number="03" title="Bring values to life" icon={HeartHandshake}>
-            Connect learning with Love, Peace, Truth, Right conduct and Non-violence.
-          </LearningStep>
+          <article className="directors-panel">
+            <p className="eyebrow">Our Directors</p>
+            <h2>Stewarding Śruti CIC</h2>
+            <div className="director-list">
+              <div><span>01</span><strong>Mrs Vidya Praveena Srikailash</strong></div>
+              <div><span>02</span><strong>Mr Vibhas Chengalavala</strong></div>
+              <div><span>03</span><strong>Mr Giridhar Narimetla</strong></div>
+            </div>
+          </article>
         </div>
       </section>
-
-      <section className="learn-beyond">
-        <div>
-          <p className="eyebrow eyebrow-light">Beyond chanting</p>
-          <h2>Learning can take many forms.</h2>
-        </div>
-        <div className="beyond-list">
-          <span><Sparkles /> Storytelling</span>
-          <span><Music2 /> Music</span>
-          <span><Theater /> Drama & performing arts</span>
-          <span><HeartHandshake /> Selfless service</span>
-        </div>
-      </section>
-
-      <JoinSection />
     </>
   );
 }
@@ -472,6 +518,31 @@ function Classes() {
         title="Find a class."
         copy="Weekly online and face-to-face learning for adults, children and families."
       />
+
+      <section className="section class-learning">
+        <div className="class-learning-intro">
+          <p className="eyebrow">How learning works</p>
+          <h2>Chant. Understand. Live.</h2>
+          <p>
+            Vedic mantras are taught by trained teachers through repetition. Meanings of the scriptures
+            are explained so that students can understand the values within them.
+          </p>
+        </div>
+        <div className="class-learning-steps">
+          <article>
+            <span>01</span>
+            <div><h3>Listen & repeat</h3><p>Learn Vedic mantras through guided repetition in face-to-face or online sessions.</p></div>
+          </article>
+          <article>
+            <span>02</span>
+            <div><h3>Understand</h3><p>Explore the meaning of the scriptures alongside the learning of the mantras.</p></div>
+          </article>
+          <article>
+            <span>03</span>
+            <div><h3>Bring values to life</h3><p>Connect learning with Love, Peace, Truth, Right Conduct and Non-violence.</p></div>
+          </article>
+        </div>
+      </section>
 
       <section className="section classes-section">
         <div className="class-heading">
@@ -505,9 +576,9 @@ function Community() {
   return (
     <>
       <PageIntro
-        eyebrow="Community"
-        title="Learn together. Serve together."
-        copy="Dharma Sundays, performing arts and selfless service extend learning beyond formal classes."
+        eyebrow="Learning Beyond the Classroom"
+        title="Dharma Sundays"
+        copy="Bringing children and families together through learning, creativity and selfless service."
         accent
       />
 
@@ -572,36 +643,81 @@ function Community() {
   );
 }
 
-function Governance() {
+function Teachers() {
+  const vedamTeachers = teachers.filter(
+    (teacher) => teacher.role === "Vedam Teacher"
+  );
+
+  const vedantaTeachers = teachers.filter(
+    (teacher) => teacher.role === "Vedanta Teacher"
+  );
+
+  const renderTeacher = (teacher: (typeof teachers)[number]) => (
+    <article className="teacher-card" key={teacher.name}>
+      {teacher.photo ? (
+        <div className="teacher-photo">
+          <img src={teacher.photo} alt={teacher.name} />
+        </div>
+      ) : (
+        <div className="teacher-photo-placeholder">
+          <UsersRound size={30} />
+          <span>Photo to be added</span>
+        </div>
+      )}
+
+      <div className="teacher-card-copy">
+        <p className="teacher-role">{teacher.role}</p>
+        <h3>{teacher.name}</h3>
+
+        <div className="teacher-detail">
+          <span>Teaches</span>
+          <p>{teacher.teaches}</p>
+        </div>
+
+        <div className="teacher-detail">
+          <span>About</span>
+          <p>{teacher.about}</p>
+        </div>
+
+        <div className="teacher-detail">
+          <span>Languages</span>
+          <p>{teacher.languages}</p>
+        </div>
+      </div>
+    </article>
+  );
+
   return (
     <>
       <PageIntro
-        eyebrow="Governance"
-        title="Care, protection and stewardship."
-        copy="Śruti is committed to the protection of children and young people."
+        eyebrow="Our Teachers"
+        title="Meet the people who guide our learning."
+        copy="Vedam and Vedanta learning at Śruti is guided by teachers across our face-to-face and online sessions."
       />
 
-      <section className="section governance-layout">
-        <article className="safeguarding-card">
-          <div className="governance-icon"><ShieldCheck /></div>
-          <p className="eyebrow eyebrow-light">Safeguarding</p>
-          <h2>Protection of children and young people.</h2>
-          <p>
-            Śruti believes that no child or young person should experience abuse or harm
-            and is committed to their protection.
-          </p>
-        </article>
+      <section className="section teachers-section">
+        <div className="teachers-heading">
+          <p className="eyebrow">Vedam</p>
+          <h2>Vedam Teachers</h2>
+        </div>
 
-        <article className="directors-panel">
-          <p className="eyebrow">Our Directors</p>
-          <h2>Stewarding Śruti CIC</h2>
-          <div className="director-list">
-            <div><span>01</span><strong>Mrs Vidya Praveena Srikailash</strong></div>
-            <div><span>02</span><strong>Mr Vibhas Chengalavala</strong></div>
-            <div><span>03</span><strong>Mr Giridhar Narimetla</strong></div>
-          </div>
-        </article>
+        <div className="teacher-grid">
+          {vedamTeachers.map(renderTeacher)}
+        </div>
       </section>
+
+      <section className="section vedanta-teachers-section">
+        <div className="teachers-heading">
+          <p className="eyebrow">Vedanta</p>
+          <h2>Vedanta Teacher</h2>
+        </div>
+
+        <div className="teacher-grid teacher-grid-featured">
+          {vedantaTeachers.map(renderTeacher)}
+        </div>
+      </section>
+
+      <JoinSection />
     </>
   );
 }
@@ -623,19 +739,6 @@ function PathCard({ icon: Icon, title, to, children }: PathCardProps) {
       <p>{children}</p>
       <span>Explore <ChevronRight size={15} /></span>
     </AppLink>
-  );
-}
-
-function LearningStep({ number, title, icon: Icon, children }: LearningStepProps) {
-  return (
-    <article>
-      <span className="step-number">{number}</span>
-      <div className="step-icon"><Icon /></div>
-      <div>
-        <h3>{title}</h3>
-        <p>{children}</p>
-      </div>
-    </article>
   );
 }
 
@@ -713,10 +816,10 @@ function Router({ path }: RouterProps) {
   switch (path) {
     case "/events": return <Events />;
     case "/about": return <About />;
-    case "/learn": return <Learn />;
     case "/classes": return <Classes />;
     case "/community": return <Community />;
-    case "/governance": return <Governance />;
+    case "/teachers": return <Teachers />;
+    case "/governance": return <About />;
     default: return <Home />;
   }
 }
