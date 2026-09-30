@@ -1063,43 +1063,37 @@ body {
 
 
 /* =========================================================
-   ŚRUTI — TEMPLE WEDDING FESTIVAL PALETTE
-   Inspired by colourful Indian temple weddings:
-   kumkum red, rani pink, marigold, peacock green, and warm ivory.
-   Bright, festive, welcoming, and still readable.
+   ŚRUTI — FRESH FESTIVAL
+   Deep teal + mango + berry pink + marigold
+   Bright, youthful, festive, and modern
    ========================================================= */
 
 :root {
-  --kumkum: #B83A4B;
-  --kumkum-deep: #8B243E;
-  --rani: #D95B83;
-  --marigold: #E7B43D;
-  --haldi: #F6D87A;
-  --peacock: #2E6E68;
-  --peacock-soft: #4D8C82;
-  --ivory: #FFF8F1;
-  --cream: #F9EFE4;
-  --blush: #FCE6EA;
-  --mint-soft: #E8F1EE;
-  --ink: #342A2E;
-  --muted: #6D6668;
-  --line: #E8D8D4;
-  --white: #FFFDF9;
+  --forest: #1E4D6B;
+  --forest-2: #3F6F8A;
+  --navy: #1E4D6B;
+  --slate: #5A7890;
 
-  /* map existing site variables */
-  --forest: var(--peacock);
-  --forest-2: var(--peacock-soft);
-  --navy: var(--kumkum-deep);
-  --slate: #7B6B71;
-  --cream-2: #F3E6DA;
-  --paper: var(--white);
-  --porcelain: var(--ivory);
-  --mist: var(--mint-soft);
-  --gold: var(--marigold);
-  --gold-soft: var(--haldi);
-  --copper: var(--kumkum);
-  --copper-soft: #EEA1B5;
-  --terracotta: #C55B54;
+  --copper: #E65C00;
+  --copper-soft: #F29A63;
+
+  --gold: #FFB300;
+  --gold-soft: #FFE082;
+
+  --berry: #EC407A;
+
+  --porcelain: #FFF9E6;
+  --mist: #E0F2F1;
+  --cream: #FFF9E6;
+  --cream-2: #FCE4EC;
+
+  --paper: #FFFFFF;
+  --white: #FFFFFF;
+
+  --ink: #212121;
+  --muted: #6A6A6A;
+  --line: #E2E6E8;
+  --terracotta: #D35C3A;
 }
 
 /* ---------- Global ---------- */
@@ -1110,15 +1104,15 @@ body {
 }
 
 ::selection {
-  background: var(--haldi);
-  color: var(--kumkum-deep);
+  background: var(--gold-soft);
+  color: var(--navy);
 }
 
-/* ---------- Header / nav ---------- */
+/* ---------- Header ---------- */
 
 .site-header {
-  background: rgba(255, 253, 249, .98);
-  border-bottom-color: rgba(139, 36, 62, .08);
+  background: rgba(255,255,255,.98);
+  border-bottom-color: rgba(30,77,107,.10);
 }
 
 .brand-copy strong,
@@ -1131,24 +1125,24 @@ body {
 .location-card small,
 .teacher-card h3,
 .class-learning-steps h3 {
-  color: var(--kumkum-deep);
+  color: var(--navy);
 }
 
 .brand-copy span {
-  color: var(--kumkum);
+  color: var(--berry);
 }
 
 .desktop-nav a {
-  color: #655E61;
+  color: #5E6770;
 }
 
 .desktop-nav a.active::after {
-  background: var(--marigold);
+  background: var(--gold);
 }
 
 .header-cta,
 .button-dark {
-  background: var(--kumkum-deep);
+  background: var(--navy);
   color: #fff;
 }
 
@@ -1157,52 +1151,52 @@ body {
 .home-hero .hero-shade {
   background: linear-gradient(
           90deg,
-          rgba(139, 36, 62, .94) 0%,
-          rgba(184, 58, 75, .82) 34%,
-          rgba(217, 91, 131, .42) 62%,
-          rgba(231, 180, 61, .10) 82%
+          rgba(30, 77, 107, .95) 0%,
+          rgba(30, 77, 107, .82) 38%,
+          rgba(230, 92, 0, .30) 64%,
+          rgba(236, 64, 122, .10) 82%
   );
 }
 
 .home-hero-copy .eyebrow,
 .eyebrow-light {
-  color: var(--haldi);
+  color: var(--gold-soft);
 }
 
 .home-hero-copy h1 {
-  color: #FFFDF9;
+  color: #FFFFFF;
 }
 
 .home-hero-copy > p:not(.eyebrow) {
-  color: rgba(255, 253, 249, .94);
+  color: rgba(255,255,255,.93);
 }
 
 .button-gold {
-  background: var(--marigold);
-  color: #5A3114;
+  background: var(--gold);
+  color: #4A3200;
 }
 
 .button-gold:hover {
-  background: #F0C85C;
+  background: #FFC233;
 }
 
 .button-outline {
-  border-color: rgba(255,255,255,.58);
-  color: #FFFDF9;
+  border-color: var(--navy);
+  color: var(--navy);
 }
 
 /* ---------- Values ribbon ---------- */
 
 .values-ribbon {
-  background: var(--peacock);
-  color: #FFF9F2;
+  background: var(--berry);
+  color: #FFF9FB;
 }
 
 .values-ribbon span:not(:last-child)::after {
-  color: var(--marigold);
+  color: var(--gold);
 }
 
-/* ---------- Small accents ---------- */
+/* ---------- Accents ---------- */
 
 .eyebrow,
 .teacher-role,
@@ -1215,118 +1209,120 @@ body {
 .location-card > svg,
 .event-detail-list svg,
 .class-learning-steps article > span {
-  color: var(--kumkum);
+  color: var(--copper);
 }
 
-/* ---------- Inner-page mastheads ---------- */
+/* ---------- Inner page mastheads ---------- */
 
 .page-intro,
 .page-intro-accent {
   background: linear-gradient(
           110deg,
-          var(--kumkum-deep) 0%,
-          var(--kumkum) 40%,
-          var(--rani) 100%
+          #1E4D6B 0%,
+          #2F6583 58%,
+          #EC407A 120%
   );
   color: #fff;
-  border-bottom: 1px solid var(--kumkum-deep);
+  border-bottom: 1px solid #1E4D6B;
 }
 
 .page-intro h1,
 .page-intro-accent h1 {
-  color: #FFFDF9;
+  color: #FFFFFF;
 }
 
 .page-intro .page-intro-copy,
 .page-intro-accent .page-intro-copy {
-  color: rgba(255, 253, 249, .90);
+  color: rgba(255,255,255,.88);
 }
 
 .page-intro .eyebrow,
 .page-intro-accent .eyebrow {
-  color: var(--haldi);
+  color: var(--gold-soft);
 }
 
 .page-intro::after,
 .page-intro-accent::after {
-  color: rgba(255, 255, 255, .06);
+  color: rgba(255,255,255,.055);
 }
 
-/* ---------- Light surfaces ---------- */
+/* ---------- Cards / surfaces ---------- */
 
 .latest-card,
 .location-card,
 .directors-panel,
 .event-feature {
-  background: var(--ivory);
+  background: var(--porcelain);
 }
 
 .path-card,
 .teacher-card,
 .schedule-row {
-  background: #fff;
+  background: #FFFFFF;
   border-color: var(--line);
 }
 
 .path-card:hover,
 .schedule-row:hover {
-  border-color: #E7B8C5;
-  box-shadow: 0 16px 38px rgba(139, 36, 62, .08);
+  border-color: #B9CED9;
+  box-shadow: 0 16px 38px rgba(30,77,107,.08);
 }
 
 .latest-copy h3,
 .event-feature-copy h3 {
-  color: var(--kumkum);
+  color: var(--copper);
 }
 
 .step-icon,
 .teacher-photo,
 .teacher-photo-placeholder {
-  background: var(--mint-soft);
+  background: var(--mist);
 }
 
-/* ---------- Decorative / child-friendly details ---------- */
+/* ---------- Badges / notes ---------- */
 
 .badges span {
-  background: #F9E7AC;
-  color: #6B4F18;
+  background: #FFF1B8;
+  color: #6A4A00;
 }
 
 .badges .badge-muted {
-  background: #F4EFF0;
+  background: #F4F6F7;
   color: var(--muted);
 }
 
 .badges .badge-stat {
-  background: #F9D4C6;
-  color: #824335;
+  background: #FAD0DF;
+  color: #7A2C4B;
 }
 
 .class-note {
-  border-left-color: var(--kumkum);
-  background: #FFF3F4;
+  border-left-color: var(--copper);
+  background: #FFF5EE;
 }
 
 .event-labels span {
-  background: #F9E7AC;
-  color: #6E5317;
+  background: #FFE8A3;
+  color: #6F4B00;
 }
 
+/* ---------- Community panels ---------- */
+
 .community-panel {
-  background: #FDF0F3;
+  background: #FCE4EC;
 }
 
 .community-panel-warm {
-  background: #FFF0D5;
+  background: #FFF9E6;
 }
 
-/* ---------- Strong section bands ---------- */
+/* ---------- Strong bands ---------- */
 
 .maxim-band,
 .learn-beyond,
 .service-feature,
 .safeguarding-card {
-  background: var(--peacock);
+  background: var(--navy);
 }
 
 .maxim-band span,
@@ -1334,7 +1330,7 @@ body {
 .service-copy > svg,
 .governance-icon,
 .service-numbers strong {
-  color: var(--haldi);
+  color: var(--gold-soft);
 }
 
 /* ---------- Join CTA ---------- */
@@ -1342,43 +1338,43 @@ body {
 .join-section {
   background: linear-gradient(
           90deg,
-          var(--kumkum) 0%,
-          var(--rani) 100%
+          var(--berry) 0%,
+          #D8346A 100%
   );
 }
 
 .join-section .eyebrow {
-  color: var(--haldi);
+  color: var(--gold-soft);
 }
 
 /* ---------- Footer ---------- */
 
 .site-footer {
-  background: var(--kumkum-deep);
-  color: #FFF8F1;
+  background: #173A52;
+  color: #EDF4F7;
 }
 
 .footer-identity h3,
 .footer-links a {
-  color: #FFFDF9;
+  color: #FFFFFF;
 }
 
 .footer-identity p,
 .footer-links a:hover {
-  color: var(--haldi);
+  color: var(--gold);
 }
 
 .footer-maxims {
-  color: #FBE8B3;
+  color: #FFE6A6;
 }
 
 .footer-links > span,
 .footer-bottom {
-  color: rgba(255, 255, 255, .70);
+  color: rgba(255,255,255,.66);
 }
 
 .footer-bottom {
-  border-top-color: rgba(255, 255, 255, .14);
+  border-top-color: rgba(255,255,255,.12);
 }
 
 /* ---------- Mobile hero ---------- */
@@ -1387,88 +1383,9 @@ body {
   .home-hero .hero-shade {
     background: linear-gradient(
             0deg,
-            rgba(139, 36, 62, .97) 0%,
-            rgba(184, 58, 75, .84) 48%,
-            rgba(217, 91, 131, .22) 100%
-    );
-  }
-}
-
-
-/* =========================================================
-   REMOVE PEACOCK GREEN
-   Replace green structural areas with rich rose / plum tones
-   while keeping kumkum, rani pink, marigold and ivory.
-   ========================================================= */
-
-:root {
-  --peacock-deep: #8B243E;
-  --peacock: #A63A56;
-  --peacock-soft: #C15B75;
-
-  --forest: #8B243E;
-  --forest-2: #A63A56;
-  --navy: #8B243E;
-  --slate: #A66A78;
-}
-
-/* Structural dark areas */
-.values-ribbon {
-  background: #A63A56;
-}
-
-.maxim-band,
-.learn-beyond,
-.service-feature,
-.safeguarding-card {
-  background: #8B243E;
-}
-
-/* Footer */
-.site-footer {
-  background: #6F1F35;
-}
-
-/* Inner mastheads use rose family only */
-.page-intro,
-.page-intro-accent {
-  background: linear-gradient(
-          110deg,
-          #8B243E 0%,
-          #B83A4B 48%,
-          #D95B83 100%
-  );
-}
-
-/* Home hero loses the green tint entirely */
-.home-hero .hero-shade {
-  background: linear-gradient(
-          90deg,
-          rgba(139, 36, 62, .94) 0%,
-          rgba(184, 58, 75, .82) 38%,
-          rgba(217, 91, 131, .42) 64%,
-          rgba(231, 180, 61, .10) 82%
-  );
-}
-
-/* Supporting panels use blush/ivory instead of mint */
-.step-icon,
-.teacher-photo,
-.teacher-photo-placeholder {
-  background: #FBE9ED;
-}
-
-.community-panel {
-  background: #FFF0F3;
-}
-
-@media (max-width: 760px) {
-  .home-hero .hero-shade {
-    background: linear-gradient(
-            0deg,
-            rgba(139, 36, 62, .97) 0%,
-            rgba(184, 58, 75, .84) 48%,
-            rgba(217, 91, 131, .22) 100%
+            rgba(30, 77, 107, .96) 0%,
+            rgba(30, 77, 107, .82) 50%,
+            rgba(236, 64, 122, .18) 100%
     );
   }
 }
