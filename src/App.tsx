@@ -23,6 +23,9 @@ import srutiLogo from "./assets/sruti-logo.png";
 import heroImage from "./assets/hero-community.png";
 import hanumanEventImage from "./assets/hanuman-event.png";
 import praveenaPhoto from "./assets/praveena-photo.png";
+import kailashPhoto from "./assets/kailash.png";
+import aishawaryaPhoto from "./assets/aishwarya-photo.png";
+import umaPhoto from "./assets/uma.png";
 
 const registrationUrl = "https://forms.gle/jQNqhpzxRc2yqnE79";
 const hanumanRegistrationUrl = "https://forms.gle/c7pAa1Pei337EoUn7";
@@ -64,7 +67,7 @@ const teachers = [
     languages: "To be added",
   },
   {
-    photo: "",
+    photo: umaPhoto,
     name: "Dr Uma Geethanath",
     role: "Vedam Teacher",
     teaches: "To be added",
@@ -72,7 +75,7 @@ const teachers = [
     languages: "To be added",
   },
   {
-    photo: "",
+    photo: aishawaryaPhoto,
     name: "Dr Aishwarya Amarnath",
     role: "Vedam Teacher",
     teaches: "To be added",
@@ -96,7 +99,7 @@ const teachers = [
     languages: "To be added",
   },
   {
-    photo: "",
+    photo: kailashPhoto,
     name: "Mr Srikailash Venkitadri",
     role: "Vedanta Teacher",
     teaches: "Vedanta",
@@ -500,8 +503,8 @@ function About() {
             <h2>Stewarding Śruti CIC</h2>
             <div className="director-list">
               <div><span>01</span><strong>Mrs Vidya Praveena Srikailash</strong></div>
-              <div><span>02</span><strong>Mr Vibhas Chengalavala</strong></div>
-              <div><span>03</span><strong>Mr Giridhar Narimetla</strong></div>
+              <div><span>02</span><strong>Mr Giridhar Narimetla</strong></div>
+              <div><span>03</span><strong>Mr Vibhas Chengalavala</strong></div>
             </div>
           </article>
         </div>
