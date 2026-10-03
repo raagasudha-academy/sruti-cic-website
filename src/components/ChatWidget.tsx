@@ -13,7 +13,7 @@ export default function ChatWidget() {
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
       role: "assistant",
-      text: "Namaste 🙏 I’m the Śruti assistant. Ask me about classes, Vedam, Vedanta, events or community activities.",
+      text: "Namaste 🙏 I’m the Śruti Digital assistant. Ask me about classes, Vedam, Vedanta, events or community activities.",
     },
   ]);
   const [isSending, setIsSending] = useState(false);
@@ -44,6 +44,49 @@ export default function ChatWidget() {
 
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const viewport = window.visualViewport;
+
+    if (!viewport) return;
+
+    const updateViewport = () => {
+      const keyboardInset = Math.max(
+        0,
+        window.innerHeight - viewport.height - viewport.offsetTop,
+      );
+
+      document.documentElement.style.setProperty(
+        "--chat-visible-height",
+        `${viewport.height}px`,
+      );
+
+      document.documentElement.style.setProperty(
+        "--chat-keyboard-inset",
+        `${keyboardInset}px`,
+      );
+    };
+
+    updateViewport();
+
+    viewport.addEventListener("resize", updateViewport);
+    viewport.addEventListener("scroll", updateViewport);
+
+    return () => {
+      viewport.removeEventListener("resize", updateViewport);
+      viewport.removeEventListener("scroll", updateViewport);
+
+      document.documentElement.style.removeProperty(
+        "--chat-visible-height",
+      );
+
+      document.documentElement.style.removeProperty(
+        "--chat-keyboard-inset",
+      );
     };
   }, [isOpen]);
 
@@ -139,7 +182,7 @@ export default function ChatWidget() {
           type="button"
           className="chat-launcher"
           onClick={() => setIsOpen(true)}
-          aria-label="Open Śruti assistant"
+          aria-label="Open Śruti Digital assistant"
         >
           <span className="chat-launcher-icon" aria-hidden="true">
             <svg
@@ -164,7 +207,7 @@ export default function ChatWidget() {
       {isOpen && (
         <section
           className="chat-widget"
-          aria-label="Śruti assistant"
+          aria-label="Śruti Digital assistant"
         >
           <header className="chat-header">
             <div>
@@ -204,7 +247,7 @@ export default function ChatWidget() {
             {isSending && (
               <div
                 className="chat-message assistant chat-typing"
-                aria-label="Śruti assistant is typing"
+                aria-label="Assistant is typing"
               >
                 <span />
                 <span />
@@ -226,7 +269,7 @@ export default function ChatWidget() {
               placeholder="Ask about classes or events..."
               rows={1}
               disabled={isSending}
-              aria-label="Message Śruti assistant"
+              aria-label="Message Śruti digital assistant"
             />
 
             <button
