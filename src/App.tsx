@@ -8,6 +8,7 @@ import Community from "./pages/Community";
 import Teachers from "./pages/Teachers";
 import About from "./pages/About";
 import useHashRoute from "./hooks/useHashRoute";
+import ChatWidget from "./components/ChatWidget";
 
 const pages = {
   "/": {
@@ -77,6 +78,7 @@ export default function App() {
       </main>
 
       <Footer />
+      <ChatWidget />
     </>
   );
 }
