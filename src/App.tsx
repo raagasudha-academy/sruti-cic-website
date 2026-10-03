@@ -26,6 +26,7 @@ import praveenaPhoto from "./assets/praveena-photo.png";
 import kailashPhoto from "./assets/kailash.png";
 import aishawaryaPhoto from "./assets/aishwarya-photo.png";
 import umaPhoto from "./assets/uma.png";
+import swathiPhoto from "./assets/swathi.png"
 
 const registrationUrl = "https://forms.gle/jQNqhpzxRc2yqnE79";
 const hanumanRegistrationUrl = "https://forms.gle/c7pAa1Pei337EoUn7";
@@ -59,7 +60,7 @@ const teachers = [
     languages: "To be added",
   },
   {
-    photo: "",
+    photo: swathiPhoto,
     name: "Ms Swathi Komaraolu",
     role: "Vedam Teacher",
     teaches: "To be added",
