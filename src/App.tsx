@@ -27,6 +27,8 @@ import kailashPhoto from "./assets/kailash.png";
 import aishawaryaPhoto from "./assets/aishwarya-photo.png";
 import umaPhoto from "./assets/uma.png";
 import swathiPhoto from "./assets/swathi.png"
+import vibhasPhoto from "./assets/vibhas.png"
+import amrutaPhoto from "./assets/amruta.png"
 
 const registrationUrl = "https://forms.gle/jQNqhpzxRc2yqnE79";
 const hanumanRegistrationUrl = "https://forms.gle/c7pAa1Pei337EoUn7";
@@ -84,7 +86,7 @@ const teachers = [
     languages: "To be added",
   },
   {
-    photo: "",
+    photo: vibhasPhoto,
     name: "Mr Vibhas Chengalavala",
     role: "Vedam Teacher",
     teaches: "To be added",
@@ -92,7 +94,7 @@ const teachers = [
     languages: "To be added",
   },
   {
-    photo: "",
+    photo: amrutaPhoto,
     name: "Mrs Amruta Hasa",
     role: "Vedam Teacher",
     teaches: "To be added",
