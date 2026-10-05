@@ -102,7 +102,7 @@ export const chalisaVerses: ChalisaVerse[] = [
   },
   {
     number: 14,
-    lines: ["Sankadik Brahmadi Munisa,", "Narad Sarad sahit Ahisa."],
+    lines: ["Sanakadik Brahmadi Munisa,", "Narad Sarad sahit Ahisa."],
     meaning: "Great sages and divine beings - including Brahma, Narada, Saraswati and Shesha - praise you.",
   },
   {
@@ -227,7 +227,7 @@ export const chalisaVerses: ChalisaVerse[] = [
   },
   {
     number: 39,
-    lines: ["Jo yah padhe Hanuman Chalisa,", "Hoye siddhi sakhi Gaurisa."],
+    lines: ["Jo yah padhe Hanuman Chalisa,", "Hoye siddhi saakhi Gaurisa."],
     meaning: "Whoever reads the Hanuman Chalisa with devotion receives spiritual success; Lord Shiva is called as witness.",
   },
   {
