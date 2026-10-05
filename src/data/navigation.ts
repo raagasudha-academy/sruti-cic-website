@@ -12,4 +12,5 @@ export const navItems = [
   ["Community", "/community"],
   ["Our Teachers", "/teachers"],
   ["About", "/about"],
+  ["Lyrics", "/lyrics"],
 ] as const;

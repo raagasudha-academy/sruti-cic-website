@@ -7,6 +7,7 @@ import Classes from "./pages/Classes";
 import Community from "./pages/Community";
 import Teachers from "./pages/Teachers";
 import About from "./pages/About";
+import Lyrics from "./pages/Lyrics";
 import useHashRoute from "./hooks/useHashRoute";
 import ChatWidget from "./components/ChatWidget";
 
@@ -34,6 +35,10 @@ const pages = {
   "/about": {
     title: "About",
     component: About,
+  },
+  "/lyrics": {
+    title: "Lyrics",
+    component: Lyrics,
   },
 };
 

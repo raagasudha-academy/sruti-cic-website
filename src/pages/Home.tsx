@@ -84,9 +84,14 @@ export default function Home() {
             <span><CalendarDays size={17} /> Sunday, 24 January 2027 · 4:00–7:00 pm</span>
             <span><MapPin size={17} /> The Glasshouse International Centre for Music</span>
           </div>
-          <AppLink to="/events" className="button button-dark">
-            Discover the event <ArrowRight size={17} />
-          </AppLink>
+          <div className="actions">
+            <AppLink to="/events" className="button button-dark">
+              Discover the event <ArrowRight size={17} />
+            </AppLink>
+            <AppLink to="/lyrics" className="button button-outline">
+              Click for Lyrics <BookOpen size={17} />
+            </AppLink>
+          </div>
         </div>
       </section>
 
