@@ -47,7 +47,7 @@ export const chalisaVerses: ChalisaVerse[] = [
   },
   {
     number: 3,
-    lines: ["Mahabir Vikram Vajrangi,", "Kumati nivar sumati ke sangi."],
+    lines: ["Mahavir Vikram Bajrangi,", "Kumati nivar sumati ke sangi."],
     meaning: "You are a great and mighty hero. You remove wrong thoughts and help us grow in good wisdom.",
   },
   {
