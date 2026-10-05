@@ -1,0 +1,31 @@
+/* =========================================================
+   ŚRUTI — SAFFRON + KUMKUM
+   Single source of truth for layout, components and theme.
+   ========================================================= */
+
+:root {
+    --color-primary: #9c2f22; /* Kumkum */
+    --color-primary-dark: #7f251c;
+    --color-primary-soft: #b8583b; /* Terracotta */
+    --color-accent: #e76f00; /* Saffron */
+    --color-accent-soft: #f4a261;
+    --color-highlight: #f4b942; /* Marigold */
+    --color-highlight-soft: #ffe0a3;
+    --color-bg: #fffcf7;
+    --color-surface: #fff7e8;
+    --color-surface-alt: #fff0d2;
+    --color-surface-warm: #fbe2cf;
+    --color-text: #3a2822;
+    --color-muted: #76635c;
+    --color-border: #e9d8cc;
+    --color-white: #ffffff;
+    --color-accent-text: #b8583b;
+
+    --shadow-card: 0 22px 60px rgba(92, 40, 29, 0.09);
+    --shadow-hover: 0 16px 38px rgba(92, 40, 29, 0.10);
+
+    font-family: "DM Sans", sans-serif;
+    color: var(--color-text);
+    background: var(--color-bg);
+    font-synthesis: none;
+}

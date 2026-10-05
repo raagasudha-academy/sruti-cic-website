@@ -1,0 +1,203 @@
+/* =========================================================
+   ABOUT & GOVERNANCE
+   ========================================================= */
+
+.about-purpose {
+    display: grid;
+    grid-template-columns: 60px .9fr 1fr;
+    gap: clamp(28px, 6vw, 85px);
+    align-items: start;
+}
+
+.about-purpose h2 {
+    margin: 0;
+}
+
+.maxim-band {
+    color: white;
+    display: grid;
+    grid-template-columns: 1fr 1px 1fr;
+    align-items: center;
+    gap: clamp(35px, 8vw, 120px);
+    padding: 68px max(7vw, 30px);
+    background: #8F2D23;
+}
+
+.maxim-band > div:not(.maxim-divider) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 35px;
+}
+
+.maxim-band span {
+    text-transform: uppercase;
+    letter-spacing: .13em;
+    font-size: .66rem;
+    font-weight: 700;
+    color: var(--color-highlight-soft);
+}
+
+.maxim-band strong {
+    font-family: "Libre Baskerville", serif;
+    font-size: clamp(1.8rem, 3.4vw, 3.4rem);
+    line-height: 1.18;
+}
+
+.maxim-divider {
+    height: 100px;
+    background: rgba(255, 255, 255, .18);
+}
+
+/* =========================================================
+   GUIDING PRINCIPLES
+   ========================================================= */
+
+.principles {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 16px;
+
+    border: 0;
+}
+
+.principles article {
+    min-height: 210px;
+    padding: 28px 26px;
+
+    display: flex;
+    flex-direction: column;
+
+    border: 1px solid transparent;
+    border-radius: 22px;
+
+    transition:
+            transform 180ms ease,
+            box-shadow 180ms ease;
+}
+
+/* Love */
+.principles article:nth-child(1) {
+    background: #fff0d8;
+    border-color: #f4c98c;
+}
+
+/* Peace */
+.principles article:nth-child(2) {
+    background: #fbe4c7;
+    border-color: #ecb36d;
+}
+
+/* Truth */
+.principles article:nth-child(3) {
+    background: #f7ddd2;
+    border-color: #dfa68f;
+}
+
+/* Right Conduct */
+.principles article:nth-child(4) {
+    background: #f4d8d3;
+    border-color: #d99b91;
+}
+
+/* Non-violence */
+.principles article:nth-child(5) {
+    background: #efcdbb;
+    border-color: #d89a7c;
+}
+
+.principles article:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 30px rgba(92, 45, 30, 0.1);
+}
+
+.principles span {
+    margin-bottom: 22px;
+
+    font-size: .7rem;
+    font-weight: 700;
+
+    color: var(--color-accent);
+}
+
+.principles h3 {
+    margin: 0 0 10px;
+
+    font-family: "Libre Baskerville", serif;
+    font-size: 1.25rem;
+
+    color: var(--color-text);
+}
+
+.principles p {
+    margin: 0;
+
+    color: var(--color-muted);
+    font-size: .9rem;
+    line-height: 1.65;
+}
+
+.governance-layout {
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+    gap: 22px;
+}
+
+.safeguarding-card {
+    color: white;
+    border-radius: 20px;
+    padding: 45px;
+    background: #8F2D23;
+}
+
+.governance-icon {
+    width: 55px;
+    height: 55px;
+    border: 1px solid rgba(255, 255, 255, .22);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    margin-bottom: 35px;
+    color: var(--color-highlight-soft);
+}
+
+.safeguarding-card p:last-child {
+    color: #d7e0dc;
+    max-width: 650px;
+}
+
+.directors-panel {
+    border-radius: 20px;
+    padding: 45px;
+    background: var(--color-surface);
+}
+
+.director-list {
+    margin-top: 35px;
+}
+
+.director-list > div {
+    display: grid;
+    grid-template-columns: 35px 1fr;
+    gap: 15px;
+    padding: 17px 0;
+    border-top: 1px solid #d8d0c1;
+}
+
+.director-list span {
+    font-size: .68rem;
+    color: var(--color-accent);
+}
+
+.director-list strong {
+    font-family: "Libre Baskerville", serif;
+    font-size: .92rem;
+}
+
+.about-governance {
+    padding-top: 32px;
+}
+
+.about-governance .section-heading {
+    margin-bottom: 34px;
+}

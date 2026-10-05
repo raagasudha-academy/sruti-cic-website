@@ -1,0 +1,216 @@
+/* =========================================================
+   HOME
+   ========================================================= */
+
+.home-hero {
+    min-height: 400px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.home-hero > img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.hero-shade {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+            90deg,
+            rgba(107, 27, 21, .96) 0%,
+            rgba(156, 47, 34, .86) 38%,
+            rgba(231, 111, 0, .48) 65%,
+            rgba(244, 185, 66, .12) 84%
+    );
+}
+
+.home-hero-copy {
+    position: relative;
+    z-index: 2;
+    color: white;
+    width: min(700px, 88%);
+    margin-left: max(6vw, 28px);
+    padding: 80px 0;
+}
+
+.home-hero-copy h1 {
+    font-size: clamp(2.8rem, 5vw, 4.8rem);
+    line-height: .98;
+    margin-bottom: 24px;
+    color: #FFFDF8;
+}
+
+.home-hero-copy > p:not(.eyebrow) {
+    max-width: 640px;
+    font-size: 1.08rem;
+    color: rgba(255, 255, 255, .94);
+}
+
+.values-ribbon {
+    min-height: 66px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(24px, 5vw, 72px);
+    font-family: "Libre Baskerville", serif;
+    font-size: .9rem;
+    padding: 18px 24px;
+    background: #A63B2A;
+    color: #FFF6E5;
+}
+
+.values-ribbon span:not(:last-child)::after {
+    content: "◆";
+    font-family: sans-serif;
+    font-size: .36rem;
+    margin-left: clamp(24px, 5vw, 72px);
+    vertical-align: middle;
+    color: var(--color-highlight);
+}
+
+.latest-card {
+    padding: 0;
+    margin-top: 20px;
+    margin-bottom: 96px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 22px 60px rgba(34, 47, 41, .08);
+    background: var(--color-surface);
+}
+
+.latest-image {
+    min-height: 500px;
+}
+
+.latest-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.latest-copy {
+    padding: clamp(34px, 5vw, 65px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.latest-copy h2 {
+    margin-bottom: 10px;
+}
+
+.latest-copy h3 {
+    margin: 0 0 20px;
+    color: var(--color-accent);
+}
+
+.event-meta {
+    display: grid;
+    gap: 11px;
+    margin: 19px 0 26px;
+}
+
+.event-meta span {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    font-weight: 600;
+    font-size: .9rem;
+}
+
+.event-meta svg {
+    flex: none;
+    margin-top: 2px;
+}
+
+.path-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.path-card {
+    display: flex;
+    flex-direction: column;
+    min-height: 275px;
+
+    padding: 30px 32px;
+
+    border: 1px solid transparent;
+    border-radius: 22px;
+
+    text-decoration: none;
+    color: var(--color-text);
+
+    transition:
+            transform 180ms ease,
+            box-shadow 180ms ease,
+            border-color 180ms ease;
+}
+
+/* Vedic Learning — soft saffron */
+.path-card:nth-child(1) {
+    background: #fff0d8;
+    border-color: #f4c98c;
+}
+
+/* Dharma Sundays — warm amber */
+.path-card:nth-child(2) {
+    background: #fbe4c7;
+    border-color: #ecb36d;
+}
+
+/* Performing Arts — soft terracotta */
+.path-card:nth-child(3) {
+    background: #f7ddd2;
+    border-color: #dfa68f;
+}
+
+/* Selfless Service — soft kumkum */
+.path-card:nth-child(4) {
+    background: #f4d8d3;
+    border-color: #d99b91;
+}
+
+.path-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 30px rgba(92, 45, 30, 0.12);
+}
+
+.path-card > svg {
+    color: var(--color-accent);
+}
+
+.path-card h3 {
+    font-family: "Libre Baskerville", serif;
+    margin: 25px 0 10px;
+}
+
+.path-card p {
+    color: var(--color-muted);
+    font-size: .9rem;
+}
+
+.path-card > span {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: .78rem;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.home-hero-copy .eyebrow {
+    color: #FFE6A8;
+}

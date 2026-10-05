@@ -1,0 +1,109 @@
+/* =========================================================
+   INNER-PAGE MASTHEAD
+   ========================================================= */
+
+.page-intro {
+    position: relative;
+    overflow: hidden;
+    min-height: 0;
+    background: linear-gradient(
+            110deg,
+            #8D291F 0%,
+            #A83D27 46%,
+            #D85F0A 100%
+    );
+    border-bottom: 1px solid #8D291F;
+    color: #fff;
+}
+
+.page-intro::after {
+    content: "ॐ";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: serif;
+    pointer-events: none;
+    right: max(4vw, 24px);
+    font-size: 8.25rem;
+    opacity: .72;
+    color: rgba(255, 255, 255, .055);
+}
+
+.page-intro-accent {
+    background: linear-gradient(
+            110deg,
+            #8D291F 0%,
+            #A83D27 46%,
+            #D85F0A 100%
+    );
+    color: #fff;
+    border-bottom: 1px solid #8D291F;
+}
+
+.page-intro-accent::after {
+    color: rgba(255, 255, 255, .055);
+}
+
+.page-intro > div {
+    margin: auto;
+    position: relative;
+    z-index: 1;
+    width: min(1210px, calc(100% - 48px));
+    padding: 46px 0 42px;
+    min-height: 230px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.page-intro h1 {
+    font-size: clamp(2.65rem, 4.25vw, 4.45rem);
+    margin: 0 0 12px;
+    max-width: 980px;
+    line-height: 1.04;
+    text-wrap: balance;
+    color: #FFFFFF;
+}
+
+.page-intro-accent h1 {
+    color: #FFFFFF;
+}
+
+.page-intro-copy {
+    color: #5d6964;
+    margin: 0;
+    max-width: 760px;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.page-intro-accent .page-intro-copy {
+    color: rgba(255, 255, 255, .89);
+}
+
+.page-intro-accent .eyebrow {
+    color: #FFE2A0;
+}
+
+.page-intro .eyebrow {
+    margin-bottom: 10px;
+    color: #FFE2A0;
+}
+
+.page-intro-accent > div {
+    min-height: 230px;
+    padding-top: 46px;
+    padding-bottom: 42px;
+}
+
+.page-intro + .section {
+    padding-top: 72px;
+}
+
+.page-intro + .event-feature {
+    margin-top: 72px;
+}
+
+.page-intro .page-intro-copy {
+    color: rgba(255, 255, 255, .89);
+}

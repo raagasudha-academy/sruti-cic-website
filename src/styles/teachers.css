@@ -1,0 +1,137 @@
+/* =========================================================
+   TEACHERS
+   ========================================================= */
+
+.teachers-section {
+    padding-top: 72px;
+    padding-bottom: 72px;
+}
+
+.teachers-heading {
+    margin-bottom: 32px;
+}
+
+.teachers-heading .eyebrow {
+    margin-bottom: 8px;
+}
+
+.teachers-heading h2 {
+    margin: 0;
+    font-family: "Libre Baskerville", serif;
+    font-size: clamp(2rem, 3vw, 3rem);
+    line-height: 1.1;
+    color: var(--color-primary);
+}
+
+.teacher-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    align-items: stretch;
+}
+
+.teacher-card {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    border-radius: 18px;
+    background: #FFFFFF;
+}
+
+.teacher-photo {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    flex-shrink: 0;
+    overflow: hidden;
+    background: var(--color-surface-alt);
+}
+
+.teacher-photo-placeholder {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: var(--color-muted);
+    background: var(--color-surface-alt);
+}
+
+.teacher-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 4%;
+    transform: translateX(0%) scale(1);
+}
+
+.teacher-photo-placeholder svg {
+    width: 24px;
+    height: 24px;
+}
+
+.teacher-photo-placeholder span {
+    font-size: .58rem;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+}
+
+.teacher-card-copy {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 24px;
+}
+
+.teacher-role {
+    margin: 0 0 8px;
+    font-size: .65rem;
+    font-weight: 800;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+}
+
+.teacher-card h3 {
+    margin: 0 0 20px;
+    font-family: "Libre Baskerville", serif;
+    font-size: 1.25rem;
+    line-height: 1.25;
+    color: var(--color-primary);
+}
+
+.teacher-detail {
+    padding: 11px 0;
+    border-top: 1px solid var(--color-border);
+}
+
+.teacher-detail span {
+    display: block;
+    margin-bottom: 4px;
+    color: var(--color-muted);
+    font-size: .62rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+
+.teacher-detail p {
+    margin: 0;
+    color: var(--color-text);
+    font-size: .82rem;
+    line-height: 1.5;
+}
+
+.vedanta-teachers-section {
+    padding-top: 20px;
+    padding-bottom: 80px;
+}
+
+.teacher-grid-featured {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}

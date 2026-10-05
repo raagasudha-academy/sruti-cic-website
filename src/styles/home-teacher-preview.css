@@ -1,0 +1,41 @@
+/* =========================================================
+   HOME — TEACHER PREVIEW
+   ========================================================= */
+
+.teacher-preview {
+    display: grid;
+    grid-template-columns: 1.25fr 0.75fr;
+    gap: clamp(32px, 7vw, 88px);
+    align-items: center;
+    padding-top: 48px;
+    padding-bottom: 72px;
+}
+
+.teacher-preview-copy {
+    max-width: 700px;
+}
+
+.teacher-preview-copy > p:not(.eyebrow) {
+    color: var(--color-muted);
+    max-width: 620px;
+}
+
+.teacher-preview-mark {
+    min-height: 220px;
+    display: grid;
+    place-items: center;
+    align-content: center;
+    gap: 16px;
+    border-radius: 22px;
+    background: var(--color-surface);
+    color: var(--color-primary);
+    text-align: center;
+}
+
+.teacher-preview-mark span {
+    color: var(--color-accent);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}

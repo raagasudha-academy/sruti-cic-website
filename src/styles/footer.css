@@ -1,0 +1,126 @@
+/* =========================================================
+   JOIN CTA & FOOTER
+   ========================================================= */
+
+.join-section {
+    padding: 65px max(7vw, 30px);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    background: linear-gradient(
+            90deg,
+            #D85F0A 0%,
+            #B23A2B 58%,
+            #922A20 100%
+    );
+}
+
+.join-section h2 {
+    margin-bottom: 10px;
+}
+
+.join-section p:last-child {
+    margin-bottom: 0;
+    color: rgba(255, 255, 255, .86);
+}
+
+.site-footer {
+    padding: 0 max(5vw, 25px);
+    background: #5E1F19;
+    color: #F5E7DF;
+}
+
+.footer-main {
+    max-width: 1210px;
+    margin: auto;
+    padding: 55px 0 42px;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr .8fr;
+    gap: 60px;
+    align-items: start;
+}
+
+.footer-identity {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.footer-identity img {
+    width: 88px;
+    height: 88px;
+    object-fit: contain;
+    flex: none;
+}
+
+.footer-identity h3 {
+    font-family: "Libre Baskerville", serif;
+    font-size: 1.4rem;
+    margin: 0 0 5px;
+    color: #FFFFFF;
+}
+
+.footer-identity p {
+    margin: 0;
+    font-size: .8rem;
+    color: var(--color-highlight);
+}
+
+.footer-maxims {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    padding-top: 13px;
+    font-family: "Libre Baskerville", serif;
+    color: #FFE0A3;
+}
+
+.footer-links {
+    display: grid;
+    gap: 7px;
+}
+
+.footer-links > span {
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    font-size: .62rem;
+    margin-bottom: 6px;
+    color: rgba(255, 255, 255, .68);
+}
+
+.footer-links a {
+    text-decoration: none;
+    font-size: .82rem;
+    color: #FFFFFF;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.footer-bottom {
+    max-width: 1210px;
+    margin: auto;
+    padding: 20px 0 24px;
+    border-top: 1px solid rgba(255, 255, 255, .1);
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    font-size: .7rem;
+    color: rgba(255, 255, 255, .68);
+    border-top-color: rgba(255, 255, 255, .13);
+}
+
+.join-section .eyebrow {
+    color: #FFE6A8;
+}
+
+/* Keyboard accessibility */
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--color-highlight);
+    outline-offset: 3px;
+}

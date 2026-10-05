@@ -1,0 +1,138 @@
+/* =========================================================
+   COMMUNITY
+   ========================================================= */
+
+.dharma-section {
+    display: grid;
+    grid-template-columns: 1.25fr .65fr;
+    gap: 60px;
+}
+
+.dharma-main > p:not(.eyebrow) {
+    color: var(--color-muted);
+    max-width: 700px;
+}
+
+.dharma-stats {
+    display: flex;
+    gap: 50px;
+    margin-top: 35px;
+}
+
+.dharma-stats div {
+    border-left: 2px solid var(--color-highlight);
+    padding-left: 17px;
+}
+
+.dharma-stats strong {
+    display: block;
+    font-family: "Libre Baskerville", serif;
+    font-size: 1.8rem;
+    color: var(--color-primary);
+}
+
+.dharma-stats span {
+    color: var(--color-muted);
+    font-size: .8rem;
+}
+
+.location-card {
+    border-radius: 18px;
+    padding: 30px;
+    background: var(--color-surface);
+}
+
+.location-card > svg {
+    color: var(--color-accent);
+}
+
+.location-card > span {
+    display: block;
+    margin: 20px 0 7px;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    font-size: .63rem;
+    font-weight: 800;
+    color: #9b6d2c;
+}
+
+.location-card h3 {
+    font-family: "Libre Baskerville", serif;
+}
+
+.location-card p {
+    color: #5f6a65;
+}
+
+.location-card small {
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.community-paths {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding-top: 0;
+}
+
+.community-panel {
+    padding: 45px;
+    border-radius: 20px;
+    background: #F8E3D7;
+}
+
+.community-panel-warm {
+    background: #FFF2D5;
+}
+
+.community-panel > svg {
+    margin-bottom: 30px;
+    color: var(--color-accent);
+}
+
+.community-panel p:last-child {
+    color: #5e6a65;
+}
+
+.service-feature {
+    color: white;
+    padding: 75px max(7vw, 30px);
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 80px;
+    align-items: center;
+    background: #8F2D23;
+}
+
+.service-copy > svg {
+    margin-bottom: 18px;
+    color: var(--color-highlight-soft);
+}
+
+.service-copy h2 {
+    margin-bottom: 18px;
+}
+
+.service-copy p:last-child {
+    color: #d4dfda;
+    max-width: 680px;
+}
+
+.service-numbers {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.service-numbers strong {
+    display: block;
+    font-family: "Libre Baskerville", serif;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    color: var(--color-highlight-soft);
+}
+
+.service-numbers span {
+    color: #d4dfda;
+    font-size: .75rem;
+}

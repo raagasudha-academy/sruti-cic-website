@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Libre+Baskerville:wght@400;700&display=swap");
+
+/* =========================================================
+   ŚRUTI — STYLESHEET ENTRY POINT
+   Split from the original stylesheet without changing rule order.
+   ========================================================= */
+
+@import "./tokens.css";
+@import "./base.css";
+@import "./header.css";
+@import "./shared.css";
+@import "./home.css";
+@import "./masthead.css";
+@import "./about.css";
+@import "./classes.css";
+@import "./community.css";
+@import "./events.css";
+@import "./teachers.css";
+@import "./footer.css";
+@import "./home-teacher-preview.css";
+@import "./responsive.css";
+@import "./accessibility.css";
+@import "./directors.css";

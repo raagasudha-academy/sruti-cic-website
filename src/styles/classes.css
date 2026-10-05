@@ -1,0 +1,161 @@
+/* =========================================================
+   CLASSES
+   ========================================================= */
+
+.class-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 35px;
+}
+
+.class-heading h2 {
+    margin-bottom: 0;
+}
+
+.class-heading p:last-child {
+    color: var(--color-muted);
+}
+
+.children-heading {
+    margin-top: 68px;
+}
+
+.schedule-list {
+    display: grid;
+    gap: 10px;
+}
+
+.schedule-row {
+    display: grid;
+    grid-template-columns: 1.35fr .65fr .65fr .75fr 1.25fr;
+    gap: 20px;
+    align-items: center;
+    padding: 22px 24px;
+    border: 1px solid var(--color-border);
+    border-radius: 14px;
+    transition: .2s;
+    background: #FFFFFF;
+}
+
+.schedule-row:hover {
+    border-color: #DBAE92;
+    box-shadow: 0 16px 38px rgba(120, 47, 30, .09);
+}
+
+.schedule-name h3 {
+    font-family: "Libre Baskerville", serif;
+    font-size: 1rem;
+    margin: 0 0 8px;
+    color: var(--color-primary);
+}
+
+.schedule-row small {
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: .09em;
+    font-size: .59rem;
+    color: #8b958f;
+    margin-bottom: 5px;
+}
+
+.schedule-row strong {
+    font-size: .83rem;
+    font-weight: 600;
+}
+
+.badges {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+.badges span {
+    font-size: .59rem;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    font-weight: 800;
+    padding: 4px 7px;
+    border-radius: 999px;
+    background: #FFF0B8;
+    color: #674600;
+}
+
+.badges .badge-muted {
+    background: #F7F1EB;
+    color: var(--color-muted);
+}
+
+.badges .badge-stat {
+    background: #F8D8CE;
+    color: #7E3426;
+}
+
+.class-note {
+    margin-top: 20px;
+    padding: 14px 17px;
+    border-left: 3px solid var(--color-highlight);
+    color: #68736e;
+    font-size: .83rem;
+    background: #FFF1E5;
+    border-left-color: var(--color-accent);
+}
+
+.class-learning {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: clamp(50px, 8vw, 110px);
+    align-items: start;
+    padding-bottom: 58px;
+}
+
+.class-learning-intro {
+    position: sticky;
+    top: 125px;
+    align-self: start;
+}
+
+.class-learning-intro > p:last-child {
+    color: var(--color-muted);
+    max-width: 520px;
+}
+
+.class-learning-intro h2 {
+    margin-bottom: 24px;
+}
+
+.class-learning-steps {
+    border-top: 1px solid var(--color-border);
+}
+
+.class-learning-steps article {
+    display: grid;
+    grid-template-columns: 45px 1fr;
+    gap: 20px;
+    padding: 30px 0;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.class-learning-steps article > span {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--color-accent);
+}
+
+.class-learning-steps h3 {
+    font-family: "Libre Baskerville", serif;
+    margin: 0 0 7px;
+    font-size: 1.25rem;
+    color: var(--color-primary);
+}
+
+.class-learning-steps p {
+    margin: 0;
+    color: var(--color-muted);
+    font-size: 0.92rem;
+}
+
+.classes-section {
+    padding-top: 52px;
+}

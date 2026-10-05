@@ -1,0 +1,434 @@
+/* =========================================================
+   RESPONSIVE — (max-width: 1120px)
+   ========================================================= */
+
+@media (max-width: 1120px) {
+    .desktop-nav {
+        display: none;
+    }
+
+    .header-cta {
+        display: none;
+    }
+
+    .menu-button {
+        display: inline-grid;
+    }
+
+    .mobile-nav {
+        display: flex;
+        position: absolute;
+        top: 84px;
+        left: 0;
+        right: 0;
+
+        flex-direction: column;
+        gap: 2px;
+
+        padding: 14px 22px 22px;
+
+        background: var(--color-bg);
+        border-bottom: 1px solid var(--color-border);
+
+        box-shadow: 0 20px 40px rgba(58, 40, 34, 0.12);
+    }
+
+    .mobile-nav a {
+        min-height: 44px;
+
+        display: flex;
+        align-items: center;
+
+        padding: 10px 0;
+
+        border-radius: 8px;
+
+        color: var(--color-text);
+        text-decoration: none;
+        font-weight: 650;
+    }
+
+    .mobile-nav a:hover,
+    .mobile-nav a:focus-visible {
+        background: var(--color-surface-alt);
+        color: var(--color-primary);
+    }
+
+    .mobile-nav a:focus-visible {
+        outline: 3px solid var(--color-highlight);
+        outline-offset: 2px;
+    }
+
+    .mobile-nav a.active,
+    .mobile-nav a[aria-current="page"] {
+        background: var(--color-surface-alt);
+        color: var(--color-primary);
+        font-weight: 750;
+    }
+
+    .path-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .principles {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .schedule-row {
+        grid-template-columns: 1.25fr .7fr .7fr .85fr;
+    }
+
+    .schedule-location {
+        grid-column: 2/-1;
+    }
+}
+
+/* =========================================================
+   RESPONSIVE — (max-width: 900px)
+   ========================================================= */
+
+@media (max-width: 900px) {
+    .teacher-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .teacher-grid-featured {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* =========================================================
+   RESPONSIVE — (max-width: 760px)
+   ========================================================= */
+
+@media (max-width: 760px) {
+    .site-header {
+        height: 76px;
+    }
+
+    .brand img {
+        width: 56px;
+        height: 60px;
+    }
+
+    .brand-copy strong {
+        font-size: 1.3rem;
+    }
+
+    .mobile-nav {
+        top: 76px;
+    }
+
+    .home-hero {
+        min-height: 520px;
+    }
+
+    .hero-shade {
+        background: linear-gradient(
+                0deg,
+                rgba(108, 27, 21, .97) 0%,
+                rgba(156, 47, 34, .86) 50%,
+                rgba(231, 111, 0, .30) 100%
+        );
+    }
+
+    .home-hero-copy {
+        align-self: flex-end;
+        margin: 0 22px;
+        padding: 48px 0;
+    }
+
+    .home-hero-copy h1 {
+        font-size: clamp(2.5rem, 11vw, 4rem);
+    }
+
+    .values-ribbon {
+        min-height: auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px 18px;
+        padding: 14px 18px;
+        overflow: visible;
+        font-size: .72rem;
+    }
+
+    .section {
+        width: calc(100% - 36px);
+        padding: 70px 0;
+    }
+
+    .split-intro {
+        grid-template-columns: 1fr;
+    }
+
+    .latest-card {
+        grid-template-columns: 1fr;
+        margin-bottom: 70px;
+    }
+
+    .latest-image {
+        min-height: 320px;
+    }
+
+    .path-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .path-card {
+        min-height: auto;
+    }
+
+    .page-intro::after {
+        font-size: 6rem;
+        right: 18px;
+    }
+
+    .page-intro > div {
+        width: calc(100% - 36px);
+        padding: 36px 0 34px;
+        min-height: 190px;
+    }
+
+    .page-intro h1 {
+        max-width: 92%;
+        font-size: clamp(2.25rem, 11vw, 3.25rem);
+        line-height: 1.06;
+    }
+
+    .page-intro-copy {
+        max-width: 92%;
+        font-size: .93rem;
+    }
+
+    .about-purpose {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .section-number {
+        display: none;
+    }
+
+    .maxim-band {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .maxim-band > div:not(.maxim-divider) {
+        justify-content: flex-start;
+    }
+
+    .maxim-divider {
+        width: 100%;
+        height: 1px;
+    }
+
+    .principles {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .principles article {
+        min-height: auto;
+        padding: 26px 24px;
+    }
+
+    .principles span {
+        margin-bottom: 20px;
+    }
+
+    .class-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .children-heading {
+        margin-top: 54px;
+    }
+
+    .schedule-row {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .dharma-section {
+        grid-template-columns: 1fr;
+    }
+
+    .dharma-stats {
+        gap: 25px;
+    }
+
+    .community-paths {
+        grid-template-columns: 1fr;
+    }
+
+    .service-feature {
+        grid-template-columns: 1fr;
+    }
+
+    .service-numbers {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+    }
+
+    .service-numbers strong {
+        font-size: 2.3rem;
+    }
+
+    .event-feature {
+        grid-template-columns: 1fr;
+    }
+
+    .event-feature-image img {
+        min-height: 360px;
+        max-height: 480px;
+    }
+
+    .governance-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .join-section {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer-main {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .footer-identity img {
+        width: 78px;
+        height: 78px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .page-intro-accent > div {
+        width: calc(100% - 36px);
+        min-height: 190px;
+        padding: 36px 0 34px;
+    }
+
+    .page-intro + .section {
+        padding-top: 54px;
+    }
+
+    .page-intro + .event-feature {
+        margin-top: 54px;
+    }
+
+    .class-learning {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding-bottom: 42px;
+    }
+
+    .class-learning-intro {
+        position: static;
+    }
+
+    .classes-section {
+        padding-top: 38px;
+    }
+
+    .about-governance {
+        padding-top: 20px;
+    }
+
+    .values-ribbon span {
+        white-space: nowrap;
+    }
+
+    .values-ribbon span:not(:last-child)::after {
+        margin-left: 18px;
+    }
+
+    .schedule-name {
+        grid-column: 1/-1;
+    }
+
+    .schedule-location {
+        grid-column: 1/-1;
+    }
+
+    .event-feature-image {
+        order: -1;
+    }
+
+    .teacher-preview {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        padding-top: 24px;
+        padding-bottom: 54px;
+    }
+
+    .teacher-preview-mark {
+        min-height: 135px;
+    }
+}
+
+/* =========================================================
+   RESPONSIVE — (max-width: 600px)
+   ========================================================= */
+
+@media (max-width: 600px) {
+    .teachers-section {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    .teachers-heading {
+        margin-bottom: 24px;
+    }
+
+    .teacher-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .teacher-photo {
+        aspect-ratio: 16 / 10;
+    }
+
+    .teacher-photo-placeholder {
+        aspect-ratio: 16 / 10;
+    }
+
+    .teacher-card-copy {
+        padding: 20px;
+    }
+
+    .teacher-card h3 {
+        font-size: 1.18rem;
+    }
+
+    .vedanta-teachers-section {
+        padding-top: 10px;
+        padding-bottom: 60px;
+    }
+
+    .teacher-grid-featured {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+}
+
+/* =========================================================
+   RESPONSIVE — (max-width: 420px)
+   ========================================================= */
+
+@media (max-width: 420px) {
+    .values-ribbon {
+        gap: 7px 16px;
+    }
+
+    .values-ribbon span:not(:last-child)::after {
+        display: none;
+    }
+}
