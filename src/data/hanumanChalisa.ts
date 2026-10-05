@@ -25,7 +25,7 @@ export const readingTip = "The most important thing is to read with attention an
 
 export const openingDoha: ReadingBlock[] = [
   {
-    lines: ["Shri Guru Charan Saroj Raj,", "Nij manu mukuru sudhari.", "Varanau Vaghubar Vimal Jasu,", "Jo dayaku phal chari."],
+    lines: ["Shri Guru Charan Saroj Raj,", "Nij manu mukuru sudhari.", "Varanau Raghuvar Vimal Jasu,", "Jo dayaku phal chari."],
     meaning: "With the blessings of my Guru, I clean the mirror of my mind and remember the pure glory of Lord Rama, which gives the four great blessings of life.",
   },
   {
