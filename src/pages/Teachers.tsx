@@ -18,7 +18,7 @@ function TeacherCard({ teacher }: { teacher: Teacher }) {
           <p>{teacher.teaches}</p>
         </div>
 
-        <div className="teacher-detail">
+        <div className="teacher-detail teacher-about">
           <span>About</span>
           <p>{teacher.about}</p>
         </div>
@@ -37,7 +37,7 @@ export default function Teachers() {
       <PageIntro
         eyebrow="Our Teachers"
         title="Meet the people who guide our learning."
-        copy="Vedam and Vedanta learning at Śruti is guided by teachers across our face-to-face and online sessions."
+        copy="Vedam and Vedanta learning at Śruti is guided by teachers across our in-person and online sessions."
       />
 
       <section className="section teachers-section">

@@ -47,7 +47,7 @@ export const teachers: Teacher[] = [
     teaches: "Children, Online",
     about: "I’m a mum of two girls, aged 9 and 5, a wife and an ophthalmologist.\n" +
       "I began learning Vedam with Praveena around seven years ago, and my daughters are now learning too.\n" +
-      "Vedam chanting supports focus, pronunciation and concentration, while creating a positive atmosphere. I’m always amazed by how quickly children pick up the chants once they become familiar with Sanskrit sounds. It is wonderful to see them begin this journey so young."
+      "Vedam chanting supports pronunciation, focus and concentration, while creating a positive atmosphere. I’m always amazed by how quickly children pick up the chants once they become familiar with Sanskrit sounds. It is wonderful to see them begin this journey so young."
   },
   {
     photo: vibhasPhoto,
@@ -72,6 +72,6 @@ export const teachers: Teacher[] = [
     role: "Vedanta Teacher",
     teaches: "Adults, Children, In-person, Online",
     about: "I have been studying and sharing Vedanta and Sanatana Dharma for many years through study circles, storytelling, talks and performing arts.\n" +
-      "At Śruti, I enjoy engaging children and adults with Vedanta through stories, discussions and reflections that make ancient teachings meaningful in everyday life. I especially enjoy seeing children ask questions and discover the deeper values behind the stories they hear.\n" +
+      "At Śruti, I enjoy engaging adults and  children with Vedanta through interesting stories, discussions and reflections that make ancient teachings meaningful in everyday life. I especially enjoy seeing children ask questions and discover the deeper values behind the stories they hear.\n" +
       "I continue my own learning through studies in Nyaya, Purva Mimamsa and Uttara Mimamsa. For me, Vedanta is not only something to learn, but something to reflect upon and live by." },
 ];
