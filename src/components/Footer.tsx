@@ -27,6 +27,12 @@ export default function Footer() {
             </AppLink>
           ))}
         </div>
+
+        <div className="footer-contact">
+          <span>Contact</span>
+          <a>Mr Srikailash Venkitadri  <br/> 07841 354590</a>
+          <a>Mrs Praveena Srikailash <br/> 07702 785815</a>
+        </div>
       </div>
 
       <div className="footer-bottom">
