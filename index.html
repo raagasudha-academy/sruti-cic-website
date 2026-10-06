@@ -10,6 +10,15 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <title>Śruti CIC</title>
+    <script>
+      // Restore the real URL redirected from 404.html (see public/404.html).
+      (function () {
+        var redirect = new URLSearchParams(location.search).get("redirect");
+        if (redirect) {
+          history.replaceState(null, "", redirect);
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

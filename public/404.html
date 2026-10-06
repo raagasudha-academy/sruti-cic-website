@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Śruti CIC</title>
+    <!--
+      GitHub Pages has no server-side rewrites, so any direct link to a route
+      like /events results in a real 404. This script re-encodes the path into
+      a query string and redirects to index.html, which decodes it back into
+      the real URL (via history.replaceState) before the app mounts.
+      Based on https://github.com/rafgraph/spa-github-pages
+    -->
+    <script>
+      var path = location.pathname + location.search + location.hash;
+      location.replace(
+        location.origin + "/?redirect=" + encodeURIComponent(path)
+      );
+    </script>
+  </head>
+  <body></body>
+</html>

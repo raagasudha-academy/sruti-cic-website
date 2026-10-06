@@ -8,7 +8,7 @@ import Community from "./pages/Community";
 import Teachers from "./pages/Teachers";
 import About from "./pages/About";
 import Lyrics from "./pages/Lyrics";
-import useHashRoute from "./hooks/useHashRoute";
+import useBrowserRoute from "./hooks/useBrowserRoute";
 import ChatWidget from "./components/ChatWidget";
 
 const pages = {
@@ -43,7 +43,7 @@ const pages = {
 };
 
 export default function App() {
-  const path = useHashRoute();
+  const path = useBrowserRoute();
   const mainRef = useRef<HTMLElement>(null);
 
   const page = pages[path as keyof typeof pages] ?? pages["/"];
