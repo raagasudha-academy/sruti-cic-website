@@ -37,8 +37,8 @@
     margin: auto;
     padding: 55px 0 42px;
     display: grid;
-    grid-template-columns: 1.2fr .8fr .7fr .9fr;
-    gap: 60px;
+    grid-template-columns: 1.1fr .9fr 1.25fr 1fr;
+    gap: clamp(24px, 3vw, 52px);
     align-items: start;
 }
 
@@ -147,4 +147,59 @@ a:focus-visible,
 button:focus-visible {
     outline: 3px solid var(--color-highlight);
     outline-offset: 3px;
+}
+
+/* Match the footer's Explore hierarchy to the header navigation. */
+.footer-link-group {
+    display: grid;
+    gap: 7px;
+}
+
+.footer-submenu {
+    display: grid;
+    gap: 7px;
+    padding-left: 14px;
+    border-left: 1px solid rgba(255, 255, 255, .3);
+}
+
+.footer-submenu a {
+    color: #F5D8C9;
+    font-size: .77rem;
+}
+
+/* Explore: primary pages on the left, About pages on the right. */
+.footer-explore-columns {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    gap: clamp(12px, 1.5vw, 28px);
+    align-items: start;
+}
+
+.footer-explore-primary,
+.footer-explore-about {
+    display: grid;
+    align-content: start;
+    gap: 9px;
+    min-width: 0;
+}
+
+.footer-explore-about .footer-submenu {
+    margin-top: 1px;
+}
+
+.footer-about-heading {
+    font-weight: 600;
+}
+
+@media (max-width: 1100px) and (min-width: 701px) {
+    .footer-main {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 360px) {
+    .footer-explore-columns {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
 }

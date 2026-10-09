@@ -6,6 +6,7 @@ import Events from "./pages/Events";
 import Classes from "./pages/Classes";
 import Community from "./pages/Community";
 import Teachers from "./pages/Teachers";
+import Directors from "./pages/Directors";
 import About from "./pages/About";
 import Lyrics from "./pages/Lyrics";
 import useBrowserRoute from "./hooks/useBrowserRoute";
@@ -27,6 +28,10 @@ const pages = {
   "/community": {
     title: "Community",
     component: Community,
+  },
+  "/directors": {
+    title: "Our Directors",
+    component: Directors,
   },
   "/teachers": {
     title: "Teachers",

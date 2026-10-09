@@ -1,5 +1,5 @@
 import AppLink from "./AppLink";
-import { navItems } from "../data/navigation";
+import { aboutNavItems, navItems } from "../data/navigation";
 import srutiLogo from "../assets/sruti-logo.png";
 
 export default function Footer() {
@@ -21,17 +21,28 @@ export default function Footer() {
 
         <div className="footer-links">
           <span>Explore</span>
-          {navItems.slice(1).map(([label, href]) => (
-            <AppLink key={href} to={href}>
-              {label}
-            </AppLink>
-          ))}
+          <div className="footer-explore-columns">
+            <nav className="footer-explore-primary" aria-label="Footer main navigation">
+              {navItems.filter(([, href]) => href !== "/about").map(([label, href]) => (
+                <AppLink key={href} to={href}>{label}</AppLink>
+              ))}
+            </nav>
+            <nav className="footer-explore-about" aria-label="Footer about navigation">
+              <AppLink to="/about" className="footer-about-heading">About</AppLink>
+              <div className="footer-submenu">
+                {aboutNavItems.map(([label, href]) => (
+                  <AppLink key={href} to={href}>{label}</AppLink>
+                ))}
+              </div>
+            </nav>
+          </div>
         </div>
 
         <div className="footer-contact">
           <span>Contact</span>
-          <a>Mr Srikailash Venkitadri  <br/> 07841 354590</a>
-          <a>Mrs Praveena Srikailash <br/> 07702 785815</a>
+          <a href="mailto:sruticic@gmail.com">sruticic@gmail.com</a>
+          <a href="tel:+447841354590">Mr Srikailash Venkitadri<br />07841 354590</a>
+          <a href="tel:+447702785815">Mrs Praveena Srikailash<br />07702 785815</a>
         </div>
       </div>
 

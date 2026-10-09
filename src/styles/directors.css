@@ -72,3 +72,23 @@
         padding: 18px 16px 20px;
     }
 }
+
+/* Dedicated directors page */
+.directors-profile-list { display: grid; gap: 36px; }
+.director-profile { display: grid; grid-template-columns: minmax(200px, 280px) minmax(0, 1fr); gap: clamp(24px, 4vw, 58px); padding: clamp(24px, 4vw, 48px); border: 1px solid var(--color-border); border-radius: 20px; background: #fff; align-items: start; }
+.director-profile-image { overflow: hidden; border-radius: 14px; background: var(--color-surface-alt); }
+.director-profile-image img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: top; }
+.director-profile-body h2 { margin: 8px 0 22px; color: var(--color-primary); font-family: "Libre Baskerville", serif; line-height: 1.3; }
+.director-profile-body > p:not(.eyebrow) {
+    margin: 0 0 16px;
+    line-height: 1.8;
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: off;
+}
+.directors-overview > p { max-width: 680px; line-height: 1.7; }
+.directors-page-link { display: inline-block; margin-top: 18px; color: var(--color-primary); font-weight: 700; text-underline-offset: 4px; }
+@media (max-width: 760px) {
+  .director-profile { grid-template-columns: 1fr; }
+  .director-profile-image { max-width: 340px; }
+}

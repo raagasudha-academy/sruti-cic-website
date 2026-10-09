@@ -126,3 +126,47 @@
 .header-cta:hover {
     background: #81261C;
 }
+
+/* About dropdown in the desktop navigation */
+.desktop-nav-dropdown {
+    position: relative;
+}
+
+.desktop-nav-dropdown > a {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.desktop-submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: -14px;
+    min-width: 160px;
+    padding: 16px 8px 8px;
+    background: var(--color-bg);
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 12px 24px rgba(58, 40, 34, .14);
+}
+
+.desktop-nav-dropdown:hover .desktop-submenu,
+.desktop-nav-dropdown:focus-within .desktop-submenu {
+    display: flex;
+    flex-direction: column;
+}
+
+.desktop-submenu a {
+    display: block;
+    padding: 10px 8px;
+    border-radius: 6px;
+}
+
+.desktop-submenu a:hover,
+.desktop-submenu a:focus-visible {
+    background: var(--color-surface-alt);
+}
+
+.desktop-submenu a.active::after {
+    display: none;
+}

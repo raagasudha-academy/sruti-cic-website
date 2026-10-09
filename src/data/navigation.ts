@@ -7,10 +7,15 @@ export const hanumanSessionSlotsUrl =   "https://docs.google.com/document/d/1WMD
 
 export const navItems = [
   ["Home", "/"],
-  ["Latest Events", "/events"],
   ["Classes", "/classes"],
+  ["Events", "/events"],
   ["Community", "/community"],
-  ["Our Teachers", "/teachers"],
-  ["About", "/about"],
   ["Lyrics", "/lyrics"],
+  ["About", "/about"],
+] as const;
+
+export const aboutNavItems = [
+  ["About Śruti", "/about"],
+  ["Our Directors", "/directors"],
+  ["Our Teachers", "/teachers"],
 ] as const;

@@ -48,6 +48,36 @@
         font-weight: 650;
     }
 
+    .mobile-nav-about-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .mobile-nav-about-row > a {
+        flex: 1;
+    }
+
+    .mobile-submenu-toggle {
+        display: grid;
+        place-items: center;
+        width: 44px;
+        height: 44px;
+        border: 0;
+        border-radius: 8px;
+        background: transparent;
+        color: var(--color-primary);
+        cursor: pointer;
+    }
+
+    .mobile-submenu-toggle[aria-expanded="true"] svg {
+        transform: rotate(180deg);
+    }
+
+    .mobile-submenu {
+        padding-left: 20px;
+    }
+
     .mobile-nav a:hover,
     .mobile-nav a:focus-visible {
         background: var(--color-surface-alt);

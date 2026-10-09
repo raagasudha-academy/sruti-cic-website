@@ -1,26 +1,9 @@
-import { ShieldCheck } from "lucide-react";
+import { Phone, ShieldCheck } from "lucide-react";
 import PageIntro from "../components/PageIntro";
 import SectionHeading from "../components/SectionHeading";
 import { principles } from "../data/learning";
 
-import praveenaPhoto from "../assets/praveena-photo.png";
-import giridharPhoto from "../assets/giridhar.png";
-import vibhasPhoto from "../assets/vibhas.png";
-
-const directors = [
-  {
-    name: "Mrs Vidya Praveena Srikailash",
-    photo: praveenaPhoto,
-  },
-  {
-    name: "Mr Giridhar Narimetla",
-    photo: giridharPhoto,
-  },
-  {
-    name: "Mr Vibhas Chengalavala",
-    photo: vibhasPhoto,
-  },
-];
+import AppLink from "../components/AppLink";
 
 export default function About() {
   return (
@@ -97,22 +80,32 @@ export default function About() {
         </div>
       </section>
 
-      <section className="section directors-section">
+      <section className="section directors-overview">
+        <SectionHeading eyebrow="Our Directors" title="Meet the people guiding Śruti." />
+        <p>Learn about the people working to preserve and share Vedic knowledge for future generations.</p>
+        <AppLink to="/directors" className="directors-page-link">Meet Our Directors →</AppLink>
+      </section>
+
+      <section className="section about-contact" aria-label="Contact Śruti">
         <SectionHeading
-          eyebrow="Our Directors"
-          title="Stewarding Śruti CIC."
+          eyebrow="Contact us"
+          title="Get in touch with Śruti."
         />
-
-        <div className="director-grid">
-          {directors.map((director) => (
-            <article className="director-card" key={director.name}>
-              <div className="director-photo">
-                <img src={director.photo} alt={director.name} />
-              </div>
-
-              <h3>{director.name}</h3>
-            </article>
-          ))}
+        <p className="about-contact-intro" >
+          For questions about Śruti, our classes or community activities, email us at{" "}
+          <a href="mailto:sruticic@gmail.com">sruticic@gmail.com</a> or call:
+        </p>
+        <div className="about-contact-grid">
+          <article className="about-contact-card">
+            <Phone size={22} aria-hidden="true" />
+            <h3>Mr Srikailash Venkitadri</h3>
+            <a href="tel:+447841354590">07841 354590</a>
+          </article>
+          <article className="about-contact-card">
+            <Phone size={22} aria-hidden="true" />
+            <h3>Mrs Praveena Srikailash</h3>
+            <a href="tel:+447702785815">07702 785815</a>
+          </article>
         </div>
       </section>
 
