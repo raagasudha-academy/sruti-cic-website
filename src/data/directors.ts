@@ -35,13 +35,11 @@ export const directors: Director[] = [
     photo: vibhasPhoto,
     name: "Mr Vibhas Chengalavala",
     role: "Director, Sruti – School of Veda and Vedanta",
-    about: "A final-year undergraduate student of Physics, he brings youthful enthusiasm, sincerity and a deep appreciation for the timeless wisdom of the Vedas.\n" +
-      "His journey with Vedam has been shaped by his personal experience of the transformative power of Vedic chanting. Through regular practice and recitation, Vibhas discovered a profound sense of inner peace, improved concentration and mental strength, particularly during challenging times. These experiences strengthened his belief that Vedam is not merely an ancient body of sacred knowledge, but a living tradition that can bring balance, clarity and purpose to everyday life.\n" +
-      "Vibhas firmly believes in the importance of preserving the authenticity and sanctity of Vedic chanting. He places great emphasis on precise pronunciation, correct intonation and disciplined practice, recognising that these are essential to maintaining the purity of the Vedic tradition as it is passed from one generation to the next.\n" +
-      "As a Director of Śruti, Vibhas is committed to making Vedic learning accessible and meaningful, particularly to younger generations. He believes that the discipline, focus and inner strength cultivated through Vedic chanting can positively influence the lives of students, helping them navigate the challenges of the modern world with greater clarity and confidence.\n" +
-      "Alongside his responsibilities as a Director, Vibhas is passionate about teaching Vedam and guiding students towards accurate and sincere recitation. He hopes to inspire learners not only to appreciate the sacredness of the Vedas but also to experience their practical relevance in everyday life.\n" +
-      "For Vibhas, serving Śruti is both a privilege and a responsibility , an opportunity to give back to a tradition that has enriched his own life, while contributing to the sacred cause of Veda Poshana, preserving and nurturing Vedic wisdom for generations to come."
-
+    about: "Vibhas Chengalavala a final-year undergraduate student of Physics, brings youthful enthusiasm, sincerity and a deep appreciation for the timeless wisdom of the Vedas.\n" +
+      "His journey with Vedam has been deeply influenced by his personal experience of Vedic chanting. Through regular practice, he discovered a sense of inner peace, improved concentration and mental strength, particularly during challenging times. These experiences strengthened his belief that Vedam is not merely an ancient sacred tradition, but a source of guidance, balance and wellbeing in everyday life.\n" +
+      "Vibhas holds a deep respect for the sanctity of Vedic chanting and believes in preserving its authenticity through correct pronunciation, intonation and disciplined practice. He considers accurate recitation essential to passing on this sacred tradition in its purest form.\n" +
+      "As a Director and teacher at Śruti, Vibhas is passionate about making Vedic learning accessible to younger generations. He hopes to inspire students to experience the peace, focus and inner strength that Vedam has brought into his own life, while nurturing an appreciation for its spiritual significance.\n" +
+      "For Vibhas, serving Śruti is a meaningful opportunity to contribute to Veda Poshana , preserving, nurturing and passing on the timeless wisdom of the Vedas to future generations."
   },
 ];
 
