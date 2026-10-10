@@ -29,8 +29,7 @@ export const teachers: Teacher[] = [
     name: "Ms Swathi Komaraolu",
     role: "Vedam Teacher",
     teaches: "Adults, Children, In-person, Online",
-    about: "I love helping students feel comfortable and confident as they learn Vedam. I try to keep my classes warm, friendly and encouraging, so students feel at ease asking questions, making mistakes and learning at their own pace.\n" +
-      "I pay particular attention to pronunciation, because in Vedic chanting even a small change in sound can alter the meaning. With patience and gentle correction, I help students listen carefully, practise with confidence and gradually build a strong foundation in their chanting.",
+    about: "Vedam has been part of my journey since my school days, and I feel blessed to have learnt from wonderful teachers whose patience, dedication and attention to detail have shaped my learning. Their guidance has been like chiselling a stone into a beautiful sculpture, refining each sound and helping me appreciate the precision and discipline of Vedic chanting. As a teacher, I strive to offer my students the same patience and encouragement, creating a warm and supportive environment where children and adults can learn at their own pace, develop confidence in their pronunciation and rhythm, and build a lasting connection with Vedam."
   },
   {
     photo: umaPhoto,
