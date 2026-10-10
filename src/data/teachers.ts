@@ -29,7 +29,7 @@ export const teachers: Teacher[] = [
     name: "Ms Swathi Komaraolu",
     role: "Vedam Teacher",
     teaches: "Adults, Children, In-person, Online",
-    about: "Vedam has been part of my journey since my school days, and I feel blessed to have learnt from wonderful teachers whose patience, dedication and attention to detail have shaped my learning. Their guidance has been like chiselling a stone into a beautiful sculpture, refining each sound and helping me appreciate the precision and discipline of Vedic chanting. As a teacher, I strive to offer my students the same patience and encouragement, creating a warm and supportive environment where children and adults can learn at their own pace, develop confidence in their pronunciation and rhythm, and build a lasting connection with Vedam."
+    about: "I began learning Vedam during my early school years, a blessing that has continued to enrich my life’s journey. I have been extremely fortunate to learn from wonderful teachers whose immense patience, dedication and meticulous attention to detail have shaped and refined my understanding over the years. Much like a sculptor patiently chiselling a stone into a work of art, their guidance has taught me that learning Vedam is a process of continual refinement. As a teacher, I strive to carry forward that same spirit of patience and dedication, creating a welcoming environment where children and adults can learn at their own pace, grow in confidence, and develop a lasting and meaningful connection with Vedam."
   },
   {
     photo: umaPhoto,
