@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 import "../styles/chalisaAudio.css";
 
-const AUDIO_SRC = "public/audio/hanuman-chalisa-doha-1.m4a"
+const AUDIO_SRC = `${import.meta.env.BASE_URL}audio/hanuman-chalisa-doha-1.m4a`;
 
 function formatTime(time: number) {
   if (!Number.isFinite(time)) return "0:00";
