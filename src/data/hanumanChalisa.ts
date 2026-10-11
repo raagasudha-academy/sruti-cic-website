@@ -238,7 +238,7 @@ export const chalisaVerses: ChalisaVerse[] = [
   {
     number: 41,
     lines: ["Keejai Nath hriday mah dera."],
-    meaning: "please make your home in my heart.'",
+    meaning: "O Lord Hanuman, please make your home in my heart.'",
   },
 ];
 
