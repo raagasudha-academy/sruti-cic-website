@@ -8,8 +8,9 @@ import {
   RotateCcw,
 } from "lucide-react";
 import "../styles/chalisaAudio.css";
+import dohaAudio from "../assets/audio/hanuman-chalisa-doha-1.m4a";
 
-const AUDIO_SRC = `${import.meta.env.BASE_URL}audio/hanuman-chalisa-doha-1.m4a`;
+const AUDIO_SRC = dohaAudio;
 
 function formatTime(time: number) {
   if (!Number.isFinite(time)) return "0:00";
