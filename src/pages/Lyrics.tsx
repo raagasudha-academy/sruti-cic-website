@@ -7,6 +7,7 @@ import {
   closingSalutation,
   openingDoha,
 } from "../data/hanumanChalisa";
+import ChalisaAudioPlayer from "../components/ChalisaAudioPlayer";
 
 const groups = [
   { id: "verses-1-5", label: "Verses 1–5", from: 1, to: 5 },
@@ -95,6 +96,9 @@ export default function Lyrics() {
           <header className="lyrics-section-heading">
             <p className="eyebrow">Begin here</p>
             <h2>Opening Doha</h2>
+
+            <ChalisaAudioPlayer />
+
           </header>
 
           <div className="lyrics-study-list">

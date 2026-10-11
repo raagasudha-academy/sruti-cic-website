@@ -1,0 +1,200 @@
+
+/* Compact audio card — matching Doha blocks */
+
+.audio-practice-card {
+    margin: 30px 0 48px;
+}
+
+.audio-practice-card .lyrics-study-box {
+    padding: 30px 24px 20px;
+}
+
+/* Desktop: 3-column layout */
+.audio-compact-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.6fr) auto auto;
+    align-items: center;
+    gap: 26px;
+    width: 100%;
+    color: #79402b;
+}
+
+.audio-compact-main {
+    min-width: 0;
+}
+
+.audio-compact-heading {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+    color: #a34d20;
+}
+
+.audio-compact-heading svg {
+    flex-shrink: 0;
+}
+
+.audio-compact-heading p {
+    margin: 0;
+    color: #785646;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+/* Progress bar */
+.audio-progress {
+    margin: 0;
+}
+
+.audio-progress input {
+    width: 100%;
+    display: block;
+    accent-color: #cc7130;
+    cursor: pointer;
+}
+
+.audio-time {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 4px;
+    font-size: 0.75rem;
+    color: #846451;
+}
+
+/* Playback controls */
+.audio-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 0;
+    padding: 0 20px;
+    border-left: 1px solid #e9cbb4;
+    border-right: 1px solid #e9cbb4;
+}
+
+.audio-controls button {
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.audio-small-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #f9e6d5;
+    color: #a35325;
+}
+
+.audio-small-button.active {
+    background: #c76a29;
+    color: white;
+}
+
+.audio-play-button {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background: #c76a29;
+    color: white;
+}
+
+.audio-play-button:hover {
+    background: #a8521b;
+}
+
+/* Speed buttons */
+.audio-speed {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    white-space: nowrap;
+    color: #784a31;
+    font-size: 0.88rem;
+}
+
+.audio-speed-options {
+    display: flex;
+    gap: 6px;
+}
+
+.audio-speed-options button {
+    padding: 8px 11px;
+    border: 1px solid #ebcbb6;
+    border-radius: 24px;
+    background: #fffaf6;
+    color: #75432b;
+    cursor: pointer;
+    font-size: 0.82rem;
+}
+
+.audio-speed-options button.selected {
+    background: #c76a29;
+    border-color: #c76a29;
+    color: #fff;
+}
+
+.audio-error {
+    color: #a12a2a;
+    text-align: center;
+    font-size: 0.85rem;
+    margin: 12px 0 0;
+}
+
+/* Tablets */
+@media (max-width: 1050px) {
+    .audio-compact-layout {
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 18px;
+    }
+
+    .audio-controls {
+        border-right: none;
+        padding-right: 0;
+    }
+
+    .audio-speed {
+        grid-column: 1 / -1;
+        justify-content: center;
+    }
+}
+
+/* Mobile */
+@media (max-width: 650px) {
+    .audio-practice-card .lyrics-study-box {
+        padding: 32px 16px 18px;
+    }
+
+    .audio-compact-layout {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .audio-compact-main {
+        width: 100%;
+    }
+
+    .audio-compact-heading {
+        gap: 8px;
+    }
+
+    .audio-compact-heading p {
+        font-size: 0.84rem;
+    }
+
+    .audio-controls {
+        padding: 0;
+        border: none;
+    }
+
+    .audio-speed {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
