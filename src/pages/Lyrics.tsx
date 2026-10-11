@@ -10,15 +10,24 @@ import {
 import ChalisaAudioPlayer from "../components/ChalisaAudioPlayer";
 
 const groups = [
-  { id: "verses-1-5", label: "Verses 1–5", from: 1, to: 5 },
-  { id: "verses-6-10", label: "Verses 6–10", from: 6, to: 10 },
-  { id: "verses-11-15", label: "Verses 11–15", from: 11, to: 15 },
-  { id: "verses-16-20", label: "Verses 16–20", from: 16, to: 20 },
-  { id: "verses-21-25", label: "Verses 21–25", from: 21, to: 25 },
-  { id: "verses-26-30", label: "Verses 26–30", from: 26, to: 30 },
-  { id: "verses-31-35", label: "Verses 31–35", from: 31, to: 35 },
-  { id: "verses-36-40", label: "Verses 36–40", from: 36, to: 40 },
-] as const;
+  ...Array.from({ length: 10 }, (_, index) => {
+    const from = index * 4 + 1;
+    const to = from + 3;
+
+    return {
+      id: `verses-${from}-${to}`,
+      label: `Verses ${from}–${to}`,
+      from,
+      to,
+    };
+  }),
+  {
+    id: "verse-41",
+    label: "Repeat slowly",
+    from: 41,
+    to: 41,
+  },
+];
 
 function scrollToSection(id: string) {
   document.getElementById(id)?.scrollIntoView({
@@ -133,9 +142,10 @@ export default function Lyrics() {
                 {groupVerses.map((verse) => (
                   <LyricsCard
                     key={verse.number}
-                    badge={`${verse.number}`}
+                    badge={verse.number === 41 ?"ॐ" : `${verse.number}`}
                     lines={verse.lines}
                     meaning={verse.meaning}
+                    className={verse.number === 41 ? "lyrics-repeat-card" : ""}
                   />
                 ))}
               </div>

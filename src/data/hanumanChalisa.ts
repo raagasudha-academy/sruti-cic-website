@@ -235,6 +235,11 @@ export const chalisaVerses: ChalisaVerse[] = [
     lines: ["Tulsidas sada Hari chera,", "Keejai Nath hriday mah dera."],
     meaning: "Tulsidas says, 'I am always a servant of God. O Lord Hanuman, please make your home in my heart.'",
   },
+  {
+    number: 41,
+    lines: ["Keejai Nath hriday mah dera."],
+    meaning: "please make your home in my heart.'",
+  },
 ];
 
 export const closingDoha: ReadingBlock = {
