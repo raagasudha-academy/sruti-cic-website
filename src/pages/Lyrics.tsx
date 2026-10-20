@@ -8,6 +8,20 @@ import {
   openingDoha,
 } from "../data/hanumanChalisa";
 import ChalisaAudioPlayer from "../components/ChalisaAudioPlayer";
+import verses1To4Audio from "../assets/audio/hanuman-chalisa-1-4.m4a";
+import verses5To8Audio from "../assets/audio/hanuman-chalisa-5-8.m4a";
+import verses9To12Audio from "../assets/audio/hanuman-chalisa-9-12.m4a";
+import verses13To16Audio from "../assets/audio/hanuman-chalisa-13-16.m4a";
+import verses17To20Audio from "../assets/audio/hanuman-chalisa-17-20.m4a";
+
+// Add more recordings here as they become available.
+const verseAudio: Record<string, string> = {
+  "verses-1-4": verses1To4Audio,
+  "verses-5-8": verses5To8Audio,
+  "verses-9-12": verses9To12Audio,
+  "verses-13-16": verses13To16Audio,
+  "verses-17-20": verses17To20Audio,
+};
 
 const groups = [
   ...Array.from({ length: 10 }, (_, index) => {
@@ -107,7 +121,6 @@ export default function Lyrics() {
             <h2>Opening Doha</h2>
 
             <ChalisaAudioPlayer />
-
           </header>
 
           <div className="lyrics-study-list">
@@ -136,6 +149,13 @@ export default function Lyrics() {
               <header className="lyrics-section-heading">
                 <p className="eyebrow">Hanuman Chalisa</p>
                 <h2>{group.label}</h2>
+                {verseAudio[group.id] && (
+                  <ChalisaAudioPlayer
+                    key={group.id}
+                    src={verseAudio[group.id]}
+                    title={group.label}
+                  />
+                )}
               </header>
 
               <div className="lyrics-study-list">

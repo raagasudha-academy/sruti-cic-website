@@ -1,4 +1,3 @@
-
 import { useRef, useState } from "react";
 import {
   Headphones,
@@ -10,7 +9,10 @@ import {
 import "../styles/chalisaAudio.css";
 import dohaAudio from "../assets/audio/hanuman-chalisa-doha-1.m4a";
 
-const AUDIO_SRC = dohaAudio;
+type ChalisaAudioPlayerProps = {
+  src?: string;
+  title?: string;
+};
 
 function formatTime(time: number) {
   if (!Number.isFinite(time)) return "0:00";
@@ -21,7 +23,10 @@ function formatTime(time: number) {
   return `${minutes}:${String(seconds).padStart(2, "0")}`;
 }
 
-export default function ChalisaAudioPlayer() {
+export default function ChalisaAudioPlayer({
+  src = dohaAudio,
+  title = "Doha",
+}: ChalisaAudioPlayerProps) {
   const audioRef = useRef<HTMLAudioElement>(null);
 
   const [playing, setPlaying] = useState(false);
@@ -73,16 +78,16 @@ export default function ChalisaAudioPlayer() {
   return (
     <section
       className="lyrics-study-card audio-practice-card"
-      aria-label="Hanuman Chalisa audio practice"
+      aria-label={`Hanuman Chalisa ${title} audio practice`}
     >
       <div className="lyrics-badge">
-        Listen &amp; Practise - Doha
+        Listen &amp; Practise
       </div>
 
       <div className="lyrics-study-box">
         <audio
           ref={audioRef}
-          src={AUDIO_SRC}
+          src={src}
           preload="metadata"
           loop={repeat}
           onPlay={() => setPlaying(true)}
