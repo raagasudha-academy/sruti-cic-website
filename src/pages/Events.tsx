@@ -98,14 +98,13 @@ export default function Events() {
             <p>
               A community initiative organised by{" "}
               <strong>Raaga Sudha Music Academy</strong> and
-              <strong> Dharma Sundays at Hindu Temple Newcastle</strong>.
+              <strong> Dharma Sundays, Hindu Temple Newcastle</strong>.
             </p>
 
             <span>In association with</span>
 
             <p>
-              Śruti School of Veda and Vedanta · Middlesbrough Hindu Mandir ·
-              Hindu Swayamsevak Sangh UK (HSS UK)
+              Śruti School of Veda and Vedanta · Middlesbrough Hindu Mandir
             </p>
           </div>
         </div>

@@ -77,8 +77,7 @@ export default function Home() {
           <h2>The Great Hanuman Chalisa</h2>
           <h3>A Sing-Along Celebration · 108 Children</h3>
           <p>
-            A community initiative organised by Raaga Sudha Music Academy and Dharma Sundays
-            at Hindu Temple Newcastle.
+            A community initiative organised by Raaga Sudha Music Academy and Dharma Sundays, Hindu Temple Newcastle.
           </p>
           <div className="event-meta">
             <span><CalendarDays size={17} /> Sunday, 24 January 2027 · 4:00–7:00 pm</span>
