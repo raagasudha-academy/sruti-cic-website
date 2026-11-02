@@ -1,5 +1,5 @@
 import "../styles/lyrics.css";
-import { Heart } from "lucide-react";
+import { Heart, Download} from "lucide-react";
 import {
   chalisaVerses,
   closingDoha,
@@ -95,6 +95,25 @@ export default function Lyrics() {
       </section>
 
       <section className="section lyrics-page">
+        <div className="lyrics-download-banner">
+          <div>
+            <h2>Hanuman Chalisa — Practice Songbook</h2>
+            <p>
+              Download all verses with simple English meanings
+              for reading, learning and practising offline.
+            </p>
+          </div>
+
+          <a
+            href="/downloads/sruti-hanuman-chalisa.pdf"
+            download="Sruti-Hanuman-Chalisa-Lyrics-and-Meanings.pdf"
+            className="button button-gold"
+          >
+            <Download size={18} />
+            Download Lyrics & Meanings (PDF)
+          </a>
+        </div>
+
         <nav className="lyrics-jump-nav" aria-label="Jump to Hanuman Chalisa section">
           <button type="button" onClick={() => scrollToSection("opening-doha")}>
             Opening
