@@ -127,9 +127,7 @@ export default function Header({ path }: HeaderProps) {
       <a
         className="header-cta"
         href={registrationUrl}
-        target="_blank"
-        rel="noreferrer"
-        aria-label="Register or enquire, opens in a new tab"
+        aria-label="Register or enquire"
       >
         Register / Enquire
       </a>
@@ -216,9 +214,7 @@ export default function Header({ path }: HeaderProps) {
 
           <a
             href={registrationUrl}
-            target="_blank"
-            rel="noreferrer"
-            aria-label="Register or enquire, opens in a new tab"
+            aria-label="Register or enquire"
             onClick={() => setOpen(false)}
           >
             Register / Enquire

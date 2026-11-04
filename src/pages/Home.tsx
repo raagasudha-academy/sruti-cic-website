@@ -32,7 +32,7 @@ export default function Home() {
             learning, chanting, storytelling, music, performing arts and selfless service.
           </p>
           <div className="actions">
-            <a className="button button-gold" href={registrationUrl} target="_blank" rel="noreferrer">
+            <a className="button button-gold" href={registrationUrl}>
               Join a Class / Enquire <ArrowRight size={17} />
             </a>
             <AppLink to="/classes" className="button button-ghost">

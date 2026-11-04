@@ -1,4 +1,4 @@
-export const registrationUrl = "https://forms.gle/jQNqhpzxRc2yqnE79";
+export const registrationUrl = "/register";
 
 export const hanumanFaqUrl =
   "https://docs.google.com/document/d/1jvk4v-AghOjc-w7-Ofqtb8rVDKetKx_gKnpkW9CY4SM/edit?usp=sharing";

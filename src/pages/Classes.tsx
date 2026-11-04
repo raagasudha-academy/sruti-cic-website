@@ -44,7 +44,7 @@ export default function Classes() {
             <p className="eyebrow">Weekly sessions</p>
             <h2>Adult & family classes</h2>
           </div>
-          <a className="button button-dark" href={registrationUrl} target="_blank" rel="noreferrer">
+          <a className="button button-dark" href={registrationUrl}>
             Register / Enquire <ExternalLink size={16} />
           </a>
         </div>

@@ -11,8 +11,10 @@ import About from "./pages/About";
 import Lyrics from "./pages/Lyrics";
 import useBrowserRoute from "./hooks/useBrowserRoute";
 import ChatWidget from "./components/ChatWidget";
+import Registration from "./pages/Registration";
 
 const pages = {
+  "/register": { title: "Student registration", component: Registration },
   "/": {
     title: "Home",
     component: Home,

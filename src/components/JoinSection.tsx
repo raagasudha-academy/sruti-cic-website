@@ -9,7 +9,7 @@ export default function JoinSection() {
         <h2>Interested in joining a class?</h2>
         <p>Use the registration form to register or enquire about Śruti sessions.</p>
       </div>
-      <a className="button button-gold" href={registrationUrl} target="_blank" rel="noreferrer">
+      <a className="button button-gold" href={registrationUrl}>
         Register / Enquire <ExternalLink size={16} />
       </a>
     </section>
