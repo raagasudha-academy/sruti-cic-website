@@ -42,6 +42,11 @@ jobs:
           VITE_REGISTRATION_API_URL: ${{ secrets.VITE_REGISTRATION_API_URL }}
         run: npm run build
 
+      - name: Support registration route
+        run: |
+          mkdir -p dist/register
+          cp dist/index.html dist/register/index.html
+
       - name: Support direct SPA routes on GitHub Pages
         run: cp dist/index.html dist/404.html
 
