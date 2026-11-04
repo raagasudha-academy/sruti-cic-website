@@ -13,14 +13,24 @@ import verses5To8Audio from "../assets/audio/hanuman-chalisa-5-8.m4a";
 import verses9To12Audio from "../assets/audio/hanuman-chalisa-9-12.m4a";
 import verses13To16Audio from "../assets/audio/hanuman-chalisa-13-16.m4a";
 import verses17To20Audio from "../assets/audio/hanuman-chalisa-17-20.m4a";
+import verses21To24Audio from "../assets/audio/hanuman-chalisa-21-24.m4a";
+import verses25To28Audio from "../assets/audio/hanuman-chalisa-25-28.m4a";
+import verses29To32Audio from "../assets/audio/hanuman-chalisa-29-32.m4a";
+import verses33To36Audio from "../assets/audio/hanuman-chalisa-33-36.m4a";
+import verses37To40Audio from "../assets/audio/hanuman-chalisa-37-40.m4a";
+import closingDohaAudio from "../assets/audio/hanuman-chalisa-closing-doha.m4a";
 
-// Add more recordings here as they become available.
 const verseAudio: Record<string, string> = {
   "verses-1-4": verses1To4Audio,
   "verses-5-8": verses5To8Audio,
   "verses-9-12": verses9To12Audio,
   "verses-13-16": verses13To16Audio,
   "verses-17-20": verses17To20Audio,
+  "verses-21-24": verses21To24Audio,
+  "verses-25-28": verses25To28Audio,
+  "verses-29-32": verses29To32Audio,
+  "verses-33-36": verses33To36Audio,
+  "verses-37-40": verses37To40Audio,
 };
 
 const groups = [
@@ -196,6 +206,7 @@ export default function Lyrics() {
           <header className="lyrics-section-heading">
             <p className="eyebrow">Finish together</p>
             <h2>Closing Doha</h2>
+            <ChalisaAudioPlayer src={closingDohaAudio} title="Closing Doha" />
           </header>
 
           <LyricsCard
