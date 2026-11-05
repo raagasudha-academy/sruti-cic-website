@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 
 function currentPath() {
   const path = window.location.pathname || "/";
-  return path.startsWith("/") ? path : `/${path}`;
+  const normalized = path.startsWith("/") ? path : `/${path}`;
+  return normalized === "/" ? "/" : normalized.replace(/\/+$/, "");
 }
 
 /** Navigate to a new path using the History API, without a full page reload. */

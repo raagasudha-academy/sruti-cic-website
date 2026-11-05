@@ -30,7 +30,7 @@ const blankStudent = (): Student => ({
 });
 const endpoint = import.meta.env.DEV
   ? "/registration"
-  : import.meta.env.VITE_REGISTRATION_API_URL?.trim() || "";
+  : import.meta.env.VITE_SRUTI_REGISTRATION_API_URL?.trim() || "";
 
 export default function Registration() {
   const [registrationType, setRegistrationType] = useState<RegistrationType>("child");
