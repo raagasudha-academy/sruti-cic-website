@@ -56,6 +56,9 @@ export default function Registration() {
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
   const [error, setError] = useState("");
   const [registrationReference, setRegistrationReference] = useState("");
+  // International E.164 format only: + followed by 8–15 digits in total.
+  const phonePattern = "\\+[1-9][0-9]{7,14}";
+  const isValidPhone = (value: string) => /^\+[1-9][0-9]{7,14}$/.test(value.trim());
   const includesSelf = registrationType === "self" || registrationType === "both";
   const includesChildren = registrationType === "child" || registrationType === "both";
   const editStudent = (index: number, changes: Partial<Student>) => setStudents(current => current.map((student, i) => i === index ? {...student, ...changes} : student));
@@ -71,6 +74,17 @@ export default function Registration() {
       setStatus("error");
       return;
     }
+    if (!isValidPhone(guardian.phone) || !isValidPhone(guardian.emergencyPhone)) {
+      setError("Please enter both phone numbers in international format, e.g. +447700900123 (no spaces or leading 0).");
+      setStatus("error");
+      return;
+    }
+    if ((includesSelf && !selfStudent.allergies.trim()) ||
+        (includesChildren && students.some(student => !student.allergies.trim()))) {
+      setError('Please state any food allergies for every learner, or write "None".');
+      setStatus("error");
+      return;
+    }
     setBusy(true);
     setStatus("idle");
     setError("");
@@ -81,13 +95,15 @@ export default function Registration() {
         body: JSON.stringify({
           institution: "sruti",
           registrationType,
-          guardian: {...guardian, relationship: includesChildren ? guardian.relationship : "Self"},
+          guardian: {...guardian, email: guardian.email.trim(), phone: guardian.phone.trim(), emergencyPhone: guardian.emergencyPhone.trim(), relationship: includesChildren ? guardian.relationship : "Self"},
           students: [...(includesSelf ? [{
             ...selfStudent,
+            allergies: selfStudent.allergies.trim(),
             photo: null,
             applicantType: "self"
           }] : []), ...(includesChildren ? students.map(student => ({
             ...student,
+            allergies: student.allergies.trim(),
             photo: null,
             applicantType: "child"
           })) : [])].map(({photo: _photo, ...data}) => data),
@@ -151,10 +167,10 @@ export default function Registration() {
                                       onChange={editGuardian}/></label>
             <label>Last name *<input required name="lastName" autoComplete="family-name" value={guardian.lastName}
                                      onChange={editGuardian}/></label>
-            <label>Email address *<input required type="email" name="email" autoComplete="email" value={guardian.email}
+            <label>Email address *<input required type="email" name="email" autoComplete="email" pattern="[^ @]+@[^ @]+\.[^ @]{2,}" title="Enter a valid email address, such as name@example.com" value={guardian.email}
                                          onChange={editGuardian}/></label>
-            <label>Mobile number *<input required type="tel" name="phone" autoComplete="tel" value={guardian.phone}
-                                         onChange={editGuardian}/></label>
+            <label>Mobile number *<input required type="tel" name="phone" autoComplete="tel" inputMode="tel" pattern={phonePattern} title="Enter an international phone number, e.g. +447700900123 (no spaces)" value={guardian.phone}
+                                         onChange={editGuardian}/><small>Use international format, e.g. +447700900123 (not 07700900123).</small></label>
             {includesChildren &&
                 <label>Relationship to student *<select required name="relationship" value={guardian.relationship}
                                                         onChange={editGuardian}>
@@ -170,10 +186,6 @@ export default function Registration() {
                                        onChange={editGuardian}/></label>
             <label>Postcode *<input required name="postcode" autoComplete="postal-code" value={guardian.postcode}
                                     onChange={editGuardian}/></label>
-            <label>Emergency contact name *<input required name="emergencyName" value={guardian.emergencyName}
-                                                  onChange={editGuardian}/></label>
-            <label>Emergency contact number *<input required type="tel" name="emergencyPhone"
-                                                    value={guardian.emergencyPhone} onChange={editGuardian}/></label>
           </div>
         </div>
         <div className="registration-panel"><p className="eyebrow">Step 2</p>
@@ -210,7 +222,10 @@ export default function Registration() {
                                                                                                   ...s,
                                                                                                   experience: e.target.value
                                                                                                 }))}/></label>
-                  <label className="registration-wide">Allergies or medical/support information (optional)<textarea
+                  <label className="registration-wide">Food allergies * (write “None” if applicable)<textarea
+                      required rows={2} value={selfStudent.allergies}
+                      onChange={e => setSelfStudent(s => ({...s, allergies: e.target.value}))}/></label>
+                  <label className="registration-wide">Medical or additional support information (optional)<textarea
                       rows={2} value={selfStudent.medicalNotes}
                       onChange={e => setSelfStudent(s => ({...s, medicalNotes: e.target.value}))}/></label>
               </div>
@@ -249,7 +264,7 @@ export default function Registration() {
                 <label className="registration-wide">Previous learning or experience<textarea rows={2}
                                                                                               value={student.experience}
                                                                                               onChange={e => editStudent(index, {experience: e.target.value})}/></label>
-                <label className="registration-wide">Allergies (write “None” if applicable)<textarea rows={2}
+                <label className="registration-wide">Food allergies * (write “None” if applicable)<textarea required rows={2}
                                                                                                      value={student.allergies}
                                                                                                      onChange={e => editStudent(index, {allergies: e.target.value})}/></label>
                 <label className="registration-wide">Medical or additional support information (optional)<textarea
@@ -267,7 +282,23 @@ export default function Registration() {
               </button>
           </>}
         </div>
-        <div className="registration-panel"><p className="eyebrow">Step 3</p><h2>Confirm & submit</h2>
+        <div className="registration-panel">
+          <p className="eyebrow">Step 3</p>
+          <h2>Emergency contact</h2>
+          <p>Please provide someone we can contact in an emergency.</p>
+          <div className="registration-grid">
+            <label>Emergency contact name *
+              <input required name="emergencyName" autoComplete="off" value={guardian.emergencyName} onChange={editGuardian}/>
+            </label>
+            <label>Emergency contact number *
+              <input required type="tel" inputMode="tel" name="emergencyPhone" pattern={phonePattern}
+                     title="Enter an international phone number, e.g. +447700900123 (no spaces)"
+                     value={guardian.emergencyPhone} onChange={editGuardian}/>
+              <small>Use international format, e.g. +447700900123 (no spaces).</small>
+            </label>
+          </div>
+        </div>
+        <div className="registration-panel"><p className="eyebrow">Step 4</p><h2>Confirm & submit</h2>
           <label className="registration-wide">Anything else you would like us to know?<textarea name="additionalNotes"
                                                                                                  rows={3}
                                                                                                  value={guardian.additionalNotes}
