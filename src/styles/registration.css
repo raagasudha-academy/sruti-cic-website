@@ -1,3 +1,16 @@
 .registration-container{padding-top:42px;max-width:940px}.registration-form{display:grid;gap:24px}.registration-panel{background:#fff;border:1px solid #e7dfd3;border-radius:18px;padding:clamp(22px,4vw,40px);box-shadow:0 8px 30px rgba(28,23,12,.04)}.registration-panel h2{margin:0 0 12px}.registration-panel>p:not(.eyebrow){color:var(--color-muted);margin-bottom:25px}.registration-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}.registration-grid label,.registration-panel>label:not(.registration-check){display:flex;flex-direction:column;gap:7px;font-size:.88rem;font-weight:700}.registration-grid input,.registration-grid select,.registration-grid textarea,.registration-panel textarea{min-width:0;width:100%;box-sizing:border-box;border:1px solid #cfc8bd;border-radius:9px;padding:11px 12px;font:inherit;color:#292519;background:#fff}.registration-grid input:focus,.registration-grid select:focus,.registration-grid textarea:focus{outline:2px solid var(--color-primary);outline-offset:1px}.registration-wide{grid-column:1/-1}.registration-grid small{color:var(--color-muted);font-weight:400}.registration-student{padding:24px 0;border-top:1px solid #eae4dc}.registration-student-heading{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:22px}.registration-student-heading h3{margin:0}.registration-remove{display:inline-flex;gap:6px;align-items:center;border:0;background:none;color:#8a312b;cursor:pointer;font:inherit}.registration-check{display:flex;align-items:flex-start;gap:12px;margin:19px 0;line-height:1.5;font-size:.9rem}.registration-check input{margin-top:5px;accent-color:var(--color-primary)}.registration-notice,.registration-error{padding:16px 20px;border-radius:10px;background:#fff7e9;border:1px solid #ead4ae;margin-bottom:22px}.registration-error{background:#fff2f0;color:#8a312b;border-color:#e5b7b0}.registration-fineprint{margin:18px 0 0;font-size:.82rem;color:var(--color-muted)}.registration-success{text-align:center;min-height:50vh}.registration-success svg{color:#387647}@media(max-width:620px){.registration-grid{grid-template-columns:1fr}.registration-panel{padding:22px}.registration-container{width:calc(100% - 32px)}}
 
 .registration-type-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.registration-type-option{display:flex;align-items:flex-start;gap:10px;padding:18px;border:1px solid #d9d0c3;border-radius:12px;cursor:pointer}.registration-type-option.selected{border:2px solid var(--color-primary);background:#faf6ed}.registration-type-option input{margin-top:4px;accent-color:var(--color-primary)}.registration-type-option span{display:grid;gap:6px}.registration-type-option small{font-weight:400;color:var(--color-muted)}@media(max-width:700px){.registration-type-options{grid-template-columns:1fr}}
+
+/* Compact headings within the registration form only. */
+.registration-panel h2 {
+  font-size: clamp(1.3rem, 2.4vw, 1.65rem);
+  line-height: 1.25;
+  font-weight: 650;
+  margin-bottom: 10px;
+}
+.registration-student-heading h3 {
+  font-size: clamp(1.08rem, 2vw, 1.3rem);
+  line-height: 1.3;
+  font-weight: 650;
+}
