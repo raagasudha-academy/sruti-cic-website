@@ -28,8 +28,10 @@ const blankStudent = (): Student => ({
   medicalNotes: "",
   photo: null
 });
+// Local development stays disconnected from live registrations. The deployed
+// stage endpoint is supplied only by the protected Pages workflow setting.
 const endpoint = import.meta.env.DEV
-  ? "/registration"
+  ? ""
   : import.meta.env.VITE_SRUTI_REGISTRATION_API_URL?.trim() || "";
 
 export default function Registration() {
