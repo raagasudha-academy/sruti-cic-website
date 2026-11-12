@@ -1,4 +1,5 @@
 export const registrationUrl = "/register";
+export const studentLoginUrl = "https://sadhana.sruti.co.uk";
 
 export const hanumanFaqUrl =
   "https://docs.google.com/document/d/1jvk4v-AghOjc-w7-Ofqtb8rVDKetKx_gKnpkW9CY4SM/edit?usp=sharing";

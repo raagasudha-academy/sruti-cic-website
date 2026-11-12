@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { ChevronDown, Menu, X } from "lucide-react";
 import AppLink from "./AppLink";
-import { aboutNavItems, navItems, registrationUrl } from "../data/navigation";
+import { aboutNavItems, navItems, registrationUrl, studentLoginUrl } from "../data/navigation";
 import srutiLogo from "../assets/sruti-logo.png";
 
 type HeaderProps = {
@@ -125,6 +125,14 @@ export default function Header({ path }: HeaderProps) {
       </nav>
 
       <a
+        className="student-login-cta"
+        href={studentLoginUrl}
+        aria-label="Student login"
+      >
+        Student Login ↗
+      </a>
+
+      <a
         className="header-cta"
         href={registrationUrl}
         aria-label="Register or enquire"
@@ -211,6 +219,15 @@ export default function Header({ path }: HeaderProps) {
               </AppLink>
             );
           })}
+
+          <a
+            className="student-login-mobile"
+            href={studentLoginUrl}
+            aria-label="Student login"
+            onClick={() => setOpen(false)}
+          >
+            Student Login ↗
+          </a>
 
           <a
             href={registrationUrl}

@@ -84,6 +84,7 @@
     background: var(--color-highlight);
 }
 
+.student-login-cta,
 .header-cta {
     text-decoration: none;
     border-radius: 999px;
@@ -93,6 +94,20 @@
     white-space: nowrap;
     background: var(--color-primary);
     color: #fff;
+}
+
+.student-login-cta {
+    border: 1px solid #c98472;
+    padding: 10px 15px;
+    color: var(--color-primary);
+    background: transparent;
+}
+
+.mobile-nav .student-login-mobile {
+    justify-content: center;
+    border: 1px solid #c98472;
+    padding-inline: 12px;
+    color: var(--color-primary);
 }
 
 .menu-button {
@@ -123,7 +138,8 @@
     outline-offset: 3px;
 }
 
-.header-cta:hover {
+.header-cta:hover,
+.student-login-cta:hover {
     background: #81261C;
 }
 
