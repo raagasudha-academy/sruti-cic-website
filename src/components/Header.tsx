@@ -226,7 +226,7 @@ export default function Header({ path }: HeaderProps) {
             aria-label="Student login"
             onClick={() => setOpen(false)}
           >
-            Student Login ↗
+            Student Login
           </a>
 
           <a

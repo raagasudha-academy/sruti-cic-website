@@ -104,10 +104,8 @@
 }
 
 .mobile-nav .student-login-mobile {
-    justify-content: center;
-    border: 1px solid #c98472;
-    padding-inline: 12px;
     color: var(--color-primary);
+    font-weight: 750;
 }
 
 .menu-button {
