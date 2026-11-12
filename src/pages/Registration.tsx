@@ -170,7 +170,7 @@ export default function Registration() {
             <label>Email address *<input required type="email" name="email" autoComplete="email" pattern="[^ @]+@[^ @]+\.[^ @]{2,}" title="Enter a valid email address, such as name@example.com" value={guardian.email}
                                          onChange={editGuardian}/></label>
             <label>Mobile number *<input required type="tel" name="phone" autoComplete="tel" inputMode="tel" pattern={phonePattern} title="Enter an international phone number, e.g. +447700900123 (no spaces)" value={guardian.phone}
-                                         onChange={editGuardian}/><small>Use international format, e.g. +447700900123 (not 07700900123).</small></label>
+                                         onChange={editGuardian}/><small>Use international format, e.g. +447700900123</small></label>
             {includesChildren &&
                 <label>Relationship to student *<select required name="relationship" value={guardian.relationship}
                                                         onChange={editGuardian}>
@@ -292,9 +292,9 @@ export default function Registration() {
             </label>
             <label>Emergency contact number *
               <input required type="tel" inputMode="tel" name="emergencyPhone" pattern={phonePattern}
-                     title="Enter an international phone number, e.g. +447700900123 (no spaces)"
+                     title="Enter an international phone number, e.g. +447700900123"
                      value={guardian.emergencyPhone} onChange={editGuardian}/>
-              <small>Use international format, e.g. +447700900123 (no spaces).</small>
+              <small>Use international format, e.g. +447700900123.</small>
             </label>
           </div>
         </div>
@@ -306,7 +306,7 @@ export default function Registration() {
           <label className="registration-check"><input type="checkbox" required checked={consent}
                                                        onChange={e => setConsent(e.target.checked)}/><span>I confirm that I am authorised to submit these details and agree that Śruti may use them to process this registration and contact me. *</span></label>
           <label className="registration-check"><input type="checkbox" checked={photoConsent}
-                                                       onChange={e => setPhotoConsent(e.target.checked)}/><span>I consent to being contacted separately about photography or media permissions (optional).</span></label>
+                                                       onChange={e => setPhotoConsent(e.target.checked)}/><span>I consent to photographs, videos and audio recordings of myself/my child being used by Sruti Academy for academy activities and promotional purposes, and understand that I can withdraw my consent at any time.(optional).</span></label>
           {status === "error" && <div className="registration-error" role="alert">{error}</div>}
           <button type="submit" className="button button-dark"
                   disabled={busy || !endpoint}>{busy ? "Submitting…" : "Submit registration"}<ArrowRight size={17}/>

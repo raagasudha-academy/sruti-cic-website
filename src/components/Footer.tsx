@@ -40,7 +40,7 @@ export default function Footer() {
 
         <div className="footer-contact">
           <span>Contact</span>
-          <a className="footer-contact-email" href="mailto:sruticic@gmail.com">sruticic@gmail.com</a>
+          <a className="footer-contact-email" href="mailto:info@sruti.co.uk">info@sruti.co.uk</a>
           <div className="footer-contact-person">
             <span className="footer-contact-name">Mr Srikailash Venkitadri</span>
             <a className="footer-contact-phone" href="tel:+447841354590">07841 354590</a>
