@@ -28,11 +28,12 @@ const blankStudent = (): Student => ({
   medicalNotes: "",
   photo: null
 });
-// Local development stays disconnected from live registrations. The deployed
-// stage endpoint is supplied only by the protected Pages workflow setting.
-const endpoint = import.meta.env.DEV
+// Local development uses .env.local; Pages builds use the github-pages
+// environment variable. Never let a local build submit to the prod stage.
+const configuredEndpoint = import.meta.env.VITE_SRUTI_REGISTRATION_API_URL?.trim() || "";
+const endpoint = import.meta.env.DEV && /\/prod\/register\/?$/.test(configuredEndpoint)
   ? ""
-  : import.meta.env.VITE_SRUTI_REGISTRATION_API_URL?.trim() || "";
+  : configuredEndpoint;
 
 export default function Registration() {
   const [registrationType, setRegistrationType] = useState<RegistrationType>("child");
