@@ -160,10 +160,6 @@ export default function Registration() {
     <PageIntro eyebrow="Join Śruti" title="Student registration"
                copy="Register for yourself, your children, or both. We will review your application before any learner account access is granted."/>
     <section className="section registration-container">
-      {!endpoint &&
-          <div className="registration-notice" role="status"><strong>Registration setup in progress.</strong> This form
-              is a preview while we connect the secure Śruti registration service. Submissions are not yet enabled.
-          </div>}
       <form onSubmit={submit} className="registration-form">
         <div className="registration-panel">
           <p className="eyebrow">Getting started</p>
