@@ -129,7 +129,7 @@ export default function Header({ path }: HeaderProps) {
         href={studentLoginUrl}
         aria-label="Student login"
       >
-        Student Login ↗
+        Student Login
       </a>
 
       <a

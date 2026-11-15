@@ -39,7 +39,7 @@ jobs:
       - name: Build
         env:
           VITE_CHAT_API_URL: ${{ secrets.VITE_CHAT_API_URL }}
-          VITE_SRUTI_REGISTRATION_API_URL: https://vfj8wl1dv5.execute-api.us-east-1.amazonaws.com/prod/register
+          VITE_SRUTI_REGISTRATION_API_URL: ${{ vars.VITE_SRUTI_REGISTRATION_API_URL }}
         run: npm run build
 
       - name: Support registration route
