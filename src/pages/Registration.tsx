@@ -53,7 +53,8 @@ export default function Registration() {
     additionalNotes: ""
   });
   const [consent, setConsent] = useState(false);
-  const [photoConsent, setPhotoConsent] = useState(false);
+  const [photoConsent, setPhotoConsent] = useState<"granted" | "declined" | "">("");
+  const [contactMethods, setContactMethods] = useState({phone: false, email: false});
   const [busy, setBusy] = useState(false);
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
   const [error, setError] = useState("");
@@ -71,6 +72,16 @@ export default function Registration() {
 
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (!contactMethods.phone && !contactMethods.email) {
+      setError("Please select at least one way we may contact you.");
+      setStatus("error");
+      return;
+    }
+    if (!photoConsent) {
+      setError("Please choose whether you consent to photography and media use.");
+      setStatus("error");
+      return;
+    }
     if (!endpoint) {
       setError("Online submissions are not yet enabled. Please return once Śruti registration is connected.");
       setStatus("error");
@@ -109,7 +120,12 @@ export default function Registration() {
             photo: null,
             applicantType: "child"
           })) : [])].map(({photo: _photo, ...data}) => data),
-          consents: {registration: consent, photography: photoConsent}
+          consents: {
+            registration: consent,
+            contactMethods,
+            photographyChoice: photoConsent,
+            photography: photoConsent === "granted"
+          }
         })
       });
       if (!res.ok) throw new Error("We couldn't submit your registration. Please try again later.");
@@ -306,9 +322,23 @@ export default function Registration() {
                                                                                                  value={guardian.additionalNotes}
                                                                                                  onChange={editGuardian}/></label>
           <label className="registration-check"><input type="checkbox" required checked={consent}
-                                                       onChange={e => setConsent(e.target.checked)}/><span>I confirm that I am authorised to submit these details and agree that Śruti may use them to process this registration and contact me. *</span></label>
-          <label className="registration-check"><input type="checkbox" checked={photoConsent}
-                                                       onChange={e => setPhotoConsent(e.target.checked)}/><span>I consent to photographs, videos and audio recordings of myself/my child being used by Sruti Academy for academy activities and promotional purposes, and understand that I can withdraw my consent at any time.(optional).</span></label>
+                                                       onChange={e => setConsent(e.target.checked)}/><span>I confirm I am authorised to submit these details. I understand that Śruti will hold and process them to review this registration, arrange learning, and contact me about the application. *</span></label>
+          <fieldset className="registration-consent-group">
+            <legend>How may Śruti contact you? Select at least one. *</legend>
+            <label className="registration-check"><input type="checkbox" checked={contactMethods.phone}
+                                                         onChange={e => setContactMethods(current => ({...current, phone: e.target.checked}))}/><span>Phone calls, text messages and WhatsApp</span></label>
+            <label className="registration-check"><input type="checkbox" checked={contactMethods.email}
+                                                         onChange={e => setContactMethods(current => ({...current, email: e.target.checked}))}/><span>Email</span></label>
+          </fieldset>
+          <fieldset className="registration-consent-group">
+            <legend>Photography, video and audio recording choice *</legend>
+            <p>This is optional for you to grant. You can decline and still submit your registration.</p>
+            <label className="registration-check"><input type="radio" name="photoConsent" required value="granted" checked={photoConsent === "granted"}
+                                                         onChange={() => setPhotoConsent("granted")}/><span>I consent to use for academy activities and promotion.</span></label>
+            <label className="registration-check"><input type="radio" name="photoConsent" value="declined" checked={photoConsent === "declined"}
+                                                         onChange={() => setPhotoConsent("declined")}/><span>I do not consent.</span></label>
+            <small>You can withdraw consent at any time by contacting the academy.</small>
+          </fieldset>
           {status === "error" && <div className="registration-error" role="alert">{error}</div>}
           <button type="submit" className="button button-dark"
                   disabled={busy || !endpoint}>{busy ? "Submitting…" : "Submit registration"}<ArrowRight size={17}/>
