@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="footer-identity">
           <img src={srutiLogo} alt="Śruti School of Veda and Vedanta" />
           <div>
-            <h3>Śruti CIC</h3>
+            <h3>Śruti</h3>
             <p>Vedas are Universal</p>
           </div>
         </div>
@@ -53,7 +53,7 @@ export default function Footer() {
       </div>
 
       <div className="footer-bottom">
-        <span>Śruti CIC</span>
+        <span>Śruti</span>
         <span>UK not-for-profit community interest company</span>
       </div>
     </footer>

@@ -11,7 +11,7 @@ export default function About() {
       <PageIntro
         eyebrow="About Śruti"
         title="Vedas are Universal."
-        copy="A UK not-for-profit community interest company sharing the learnings of Vedas and Vedanta, especially with the next generation."
+        copy="A UK not-for-profit organisation sharing the learnings of Vedas and Vedanta, especially with the next generation."
       />
 
       <section className="section about-purpose">
@@ -28,7 +28,7 @@ export default function About() {
 
         <div className="body-copy">
           <p>
-            Śruti CIC is based on the principles of Love, Peace, Truth,
+            Śruti is based on the principles of Love, Peace, Truth,
             Right Conduct and Non-violence. The knowledge of the Vedas
             is not restricted to one religion.
           </p>
@@ -93,7 +93,7 @@ export default function About() {
         />
         <p className="about-contact-intro" >
           For questions about Śruti, our classes or community activities, email us at{" "}
-          <a href="mailto:sruticic@gmail.com">sruticic@gmail.com</a> or call:
+          <a href="mailto:info@sruti.co.uk">info@sruti.co.uk</a> or call:
         </p>
         <div className="about-contact-grid">
           <article className="about-contact-card">

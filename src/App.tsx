@@ -59,8 +59,8 @@ export default function App() {
   useEffect(() => {
     document.title =
       page.title === "Home"
-        ? "Śruti CIC"
-        : `${page.title} | Śruti CIC`;
+        ? "Śruti"
+        : `${page.title} | Śruti`;
 
     mainRef.current?.focus({
       preventScroll: true,

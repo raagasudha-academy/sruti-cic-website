@@ -69,7 +69,7 @@ export default function Header({ path }: HeaderProps) {
       <AppLink
         to="/"
         className="brand"
-        aria-label="Śruti CIC home"
+        aria-label="Śruti home"
       >
         <img
           src={srutiLogo}
@@ -79,7 +79,6 @@ export default function Header({ path }: HeaderProps) {
 
         <div className="brand-copy">
           <strong>Śruti</strong>
-          <span>CIC</span>
         </div>
       </AppLink>
 

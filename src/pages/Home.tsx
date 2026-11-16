@@ -23,7 +23,7 @@ export default function Home() {
         <img src={heroImage} alt="" />
         <div className="hero-shade" />
         <div className="home-hero-copy">
-          <p className="eyebrow eyebrow-light">Śruti CIC · Vedas are Universal</p>
+          <p className="eyebrow eyebrow-light">Śruti · Vedas are Universal</p>
           <h1>
             Ancient wisdom.<br />Living values.
           </h1>
@@ -55,7 +55,7 @@ export default function Home() {
         </div>
         <div className="body-copy">
           <p>
-            Śruti CIC is a UK not-for-profit community interest company whose purpose is
+            Śruti is a UK not-for-profit organisation whose purpose is
             to take the learnings of Vedas and Vedanta to everyone, especially the next generation.
           </p>
           <p>
