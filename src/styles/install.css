@@ -1,0 +1,157 @@
+.install-hero {
+  padding: 104px 24px 96px;
+  background:
+    radial-gradient(circle at 78% 10%, rgba(215, 142, 108, 0.16), transparent 30%),
+    linear-gradient(135deg, #fffaf6, #f4faf7);
+  text-align: center;
+}
+
+.install-hero h1 {
+  max-width: 850px;
+  margin: 0 auto;
+  color: var(--color-primary);
+  font-family: "Libre Baskerville", Georgia, serif;
+  font-size: clamp(2.5rem, 6vw, 4.8rem);
+  line-height: 1.08;
+}
+
+.install-hero > p:last-child {
+  max-width: 630px;
+  margin: 24px auto 0;
+  color: var(--color-muted);
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.install-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  align-items: stretch;
+}
+
+.install-option {
+  padding: clamp(28px, 4vw, 48px);
+  border: 1px solid rgba(156, 47, 34, 0.12);
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: 0 14px 36px rgba(58, 40, 34, 0.06);
+}
+
+.install-option-iphone {
+  background: var(--color-surface-alt);
+}
+
+.install-option-icon {
+  display: grid;
+  width: 50px;
+  height: 50px;
+  margin-bottom: 24px;
+  place-items: center;
+  border-radius: 15px;
+  background: rgba(156, 47, 34, 0.09);
+  color: var(--color-primary);
+}
+
+.install-option .eyebrow {
+  margin-bottom: 9px;
+}
+
+.install-option h2 {
+  margin: 0 0 20px;
+  color: var(--color-primary);
+  font-family: "Libre Baskerville", Georgia, serif;
+  font-size: clamp(1.55rem, 2.5vw, 2.1rem);
+  line-height: 1.2;
+}
+
+.install-option p:not(.eyebrow):not(.install-status) {
+  color: var(--color-muted);
+  line-height: 1.75;
+}
+
+.install-option ol {
+  display: grid;
+  gap: 14px;
+  margin: 0;
+  padding-left: 22px;
+  color: var(--color-muted);
+  line-height: 1.6;
+}
+
+.install-option li::marker {
+  color: var(--color-highlight);
+  font-weight: 800;
+}
+
+.install-option strong {
+  color: var(--color-primary);
+}
+
+.install-action {
+  display: inline-flex;
+  gap: 9px;
+  align-items: center;
+  margin-top: 14px;
+  padding: 13px 20px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--color-primary);
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.install-action:hover {
+  background: #81261c;
+}
+
+.install-status {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.install-note {
+  padding: 0 24px 90px;
+  text-align: center;
+}
+
+.install-note p {
+  max-width: 720px;
+  margin: 0 auto;
+  color: var(--color-muted);
+  line-height: 1.7;
+}
+
+.home-install-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 18px;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.65);
+  text-underline-offset: 4px;
+}
+
+.home-install-link:hover {
+  color: #f2d1a1;
+}
+
+@media (max-width: 700px) {
+  .install-hero {
+    padding: 76px 22px;
+  }
+
+  .install-options {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .install-note {
+    padding-bottom: 68px;
+  }
+}

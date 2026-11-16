@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
@@ -12,9 +12,12 @@ import Lyrics from "./pages/Lyrics";
 import useBrowserRoute from "./hooks/useBrowserRoute";
 import ChatWidget from "./components/ChatWidget";
 import Registration from "./pages/Registration";
+import Install from "./pages/Install";
+import { InstallPromptContext, type InstallPromptEvent } from "./context/InstallPromptContext";
 
 const pages = {
   "/register": { title: "Student registration", component: Registration },
+  "/install": { title: "Install Śruti", component: Install },
   "/": {
     title: "Home",
     component: Home,
@@ -52,6 +55,23 @@ const pages = {
 export default function App() {
   const path = useBrowserRoute();
   const mainRef = useRef<HTMLElement>(null);
+  const [installPrompt, setInstallPrompt] = useState<InstallPromptEvent | null>(null);
+
+  useEffect(() => {
+    const handleInstallPrompt = (event: Event) => {
+      event.preventDefault();
+      setInstallPrompt(event as InstallPromptEvent);
+    };
+    const handleInstalled = () => setInstallPrompt(null);
+
+    window.addEventListener("beforeinstallprompt", handleInstallPrompt);
+    window.addEventListener("appinstalled", handleInstalled);
+
+    return () => {
+      window.removeEventListener("beforeinstallprompt", handleInstallPrompt);
+      window.removeEventListener("appinstalled", handleInstalled);
+    };
+  }, []);
 
   const page = pages[path as keyof typeof pages] ?? pages["/"];
   const Page = page.component;
@@ -73,24 +93,28 @@ export default function App() {
   }, [path, page.title]);
 
   return (
-    <>
-      <a className="skip-link" href="#main-content">
-        Skip to main content
-      </a>
+    <InstallPromptContext.Provider
+      value={{ installPrompt, clearInstallPrompt: () => setInstallPrompt(null) }}
+    >
+      <>
+        <a className="skip-link" href="#main-content">
+          Skip to main content
+        </a>
 
-      <Header path={path} />
+        <Header path={path} />
 
-      <main
-        ref={mainRef}
-        id="main-content"
-        tabIndex={-1}
-        aria-label={`${page.title} page`}
-      >
-        <Page />
-      </main>
+        <main
+          ref={mainRef}
+          id="main-content"
+          tabIndex={-1}
+          aria-label={`${page.title} page`}
+        >
+          <Page />
+        </main>
 
-      <Footer />
-      <ChatWidget />
-    </>
+        <Footer />
+        <ChatWidget />
+      </>
+    </InstallPromptContext.Provider>
   );
 }

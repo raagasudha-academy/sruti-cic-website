@@ -5,6 +5,7 @@ import {
   HeartHandshake,
   MapPin,
   Sparkles,
+  Smartphone,
   Theater,
   UsersRound,
 } from "lucide-react";
@@ -39,6 +40,9 @@ export default function Home() {
               Explore learning
             </AppLink>
           </div>
+          <AppLink to="/install" className="home-install-link">
+            <Smartphone size={17} aria-hidden="true" /> Install Śruti on your phone
+          </AppLink>
         </div>
       </section>
 

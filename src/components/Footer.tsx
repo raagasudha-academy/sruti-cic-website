@@ -26,6 +26,7 @@ export default function Footer() {
               {navItems.filter(([, href]) => href !== "/about").map(([label, href]) => (
                 <AppLink key={href} to={href}>{label}</AppLink>
               ))}
+              <AppLink to="/install">Install Śruti</AppLink>
             </nav>
             <nav className="footer-explore-about" aria-label="Footer about navigation">
               <AppLink to="/about" className="footer-about-heading">About</AppLink>
