@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
-import { ChevronDown, Menu, X } from "lucide-react";
+import { ChevronDown, Menu, Smartphone, X } from "lucide-react";
 import AppLink from "./AppLink";
+import InstallCta from "./InstallCta";
 import { aboutNavItems, navItems, registrationUrl, studentLoginUrl } from "../data/navigation";
 import srutiLogo from "../assets/sruti-logo.png";
 
@@ -122,6 +123,11 @@ export default function Header({ path }: HeaderProps) {
           );
         })}
       </nav>
+
+      <InstallCta className="header-install-cta">
+        <Smartphone size={16} aria-hidden="true" />
+        <span>Install Śruti</span>
+      </InstallCta>
 
       <a
         className="student-login-cta"

@@ -85,15 +85,37 @@
 }
 
 .student-login-cta,
-.header-cta {
+.header-cta,
+.header-install-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
     text-decoration: none;
     border-radius: 999px;
     padding: 11px 16px;
     font-size: .8rem;
     font-weight: 700;
     white-space: nowrap;
+    font-family: inherit;
+    cursor: pointer;
+    border: 0;
+}
+
+.header-cta {
     background: var(--color-primary);
     color: #fff;
+}
+
+.header-install-cta {
+    background: var(--color-highlight);
+    color: #563510;
+    box-shadow: 0 5px 14px rgba(92, 40, 29, .12);
+}
+
+.header-install-cta:hover {
+    background: #f8c75c;
+    transform: translateY(-1px);
 }
 
 .student-login-cta {
@@ -139,6 +161,11 @@
 .header-cta:hover,
 .student-login-cta:hover {
     background: #81261C;
+}
+
+.header-install-cta:focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 3px;
 }
 
 /* About dropdown in the desktop navigation */

@@ -10,6 +10,7 @@ import {
   UsersRound,
 } from "lucide-react";
 import AppLink from "../components/AppLink";
+import InstallCta from "../components/InstallCta";
 import JoinSection from "../components/JoinSection";
 import PathCard from "../components/PathCard";
 import SectionHeading from "../components/SectionHeading";
@@ -40,9 +41,9 @@ export default function Home() {
               Explore learning
             </AppLink>
           </div>
-          <AppLink to="/install" className="home-install-link">
+          <InstallCta className="home-install-link">
             <Smartphone size={17} aria-hidden="true" /> Install Śruti on your phone
-          </AppLink>
+          </InstallCta>
         </div>
       </section>
 
