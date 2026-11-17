@@ -42,6 +42,8 @@ export default function Registration() {
   const [guardian, setGuardian] = useState({
     firstName: "",
     lastName: "",
+    dateOfBirth: "",
+    gender: "",
     email: "",
     phone: "",
     relationship: "Parent",
@@ -63,11 +65,12 @@ export default function Registration() {
   // International E.164 format only: + followed by 8–15 digits in total.
   const phonePattern = "\\+[1-9][0-9]{7,14}";
   const isValidPhone = (value: string) => /^\+[1-9][0-9]{7,14}$/.test(value.trim());
-  const adultDateCutoff = new Date();
-  adultDateCutoff.setFullYear(adultDateCutoff.getFullYear() - 18);
-  const adultDateCutoffValue = `${adultDateCutoff.getFullYear()}-${String(adultDateCutoff.getMonth() + 1).padStart(2, "0")}-${String(adultDateCutoff.getDate()).padStart(2, "0")}`;
-  const minorDateMin = new Date(adultDateCutoff.getFullYear(), adultDateCutoff.getMonth(), adultDateCutoff.getDate() + 1);
-  const minorDateMinValue = `${minorDateMin.getFullYear()}-${String(minorDateMin.getMonth() + 1).padStart(2, "0")}-${String(minorDateMin.getDate()).padStart(2, "0")}`;
+  const today = new Date();
+  const adultDateCutoff = new Date(Date.UTC(today.getUTCFullYear() - 19, today.getUTCMonth(), today.getUTCDate()));
+  const adultDateCutoffValue = adultDateCutoff.toISOString().slice(0, 10);
+  const childAgeCutoff = new Date(Date.UTC(today.getUTCFullYear() - 18, today.getUTCMonth(), today.getUTCDate()));
+  const minorDateMin = new Date(Date.UTC(childAgeCutoff.getUTCFullYear(), childAgeCutoff.getUTCMonth(), childAgeCutoff.getUTCDate() + 1));
+  const minorDateMinValue = minorDateMin.toISOString().slice(0, 10);
   const includesSelf = registrationType === "self" || registrationType === "both";
   const includesChildren = registrationType === "child" || registrationType === "both";
   const editStudent = (index: number, changes: Partial<Student>) => setStudents(current => current.map((student, i) => i === index ? {...student, ...changes} : student));
@@ -88,13 +91,13 @@ export default function Registration() {
       setStatus("error");
       return;
     }
-    if (includesSelf && (!selfStudent.dateOfBirth || selfStudent.dateOfBirth > adultDateCutoffValue)) {
-      setError("Self-registration is for people aged 18 or over. A parent or guardian must register anyone under 18.");
+    if (!guardian.dateOfBirth || guardian.dateOfBirth > adultDateCutoffValue) {
+      setError("The parent or self-applicant must be over 18.");
       setStatus("error");
       return;
     }
-    if (includesChildren && students.some(student => student.dateOfBirth && student.dateOfBirth <= adultDateCutoffValue)) {
-      setError("Children must be under 18. Anyone aged 18 or over should register themselves.");
+    if (includesChildren && students.some(student => student.dateOfBirth && student.dateOfBirth <= childAgeCutoff.toISOString().slice(0, 10))) {
+      setError("Children must be under 18. Anyone over 18 should register themselves.");
       setStatus("error");
       return;
     }
@@ -129,6 +132,8 @@ export default function Registration() {
             ...selfStudent,
             firstName: guardian.firstName.trim(),
             lastName: guardian.lastName.trim(),
+            dateOfBirth: guardian.dateOfBirth,
+            gender: guardian.gender,
             allergies: selfStudent.allergies.trim(),
             photo: null,
             applicantType: "self"
@@ -182,7 +187,7 @@ export default function Registration() {
           <p className="eyebrow">Getting started</p>
           <h2>Who are you registering?</h2>
           <div className="registration-type-options" role="radiogroup" aria-label="Who are you registering?">
-            {([["self", "Myself", "I am 18 or older and want to join Śruti"], ["child", "My child or children", "I am a parent or guardian registering one or more learners under 18"], ["both", "Myself and my children", "I am 18 or older and registering myself and my children under 18"]] as const).map(([value, label, detail]) => (
+            {([["self", "Myself", "I am over 18 and want to join Śruti"], ["child", "My child or children", "I am a parent or guardian registering one or more learners under 18"], ["both", "Myself and my children", "I am over 18 and registering myself and my children under 18"]] as const).map(([value, label, detail]) => (
               <label key={value} className={`registration-type-option${registrationType === value ? " selected" : ""}`}>
                 <input type="radio" name="registrationType" value={value} checked={registrationType === value}
                        onChange={() => setRegistrationType(value)}/>
@@ -199,6 +204,14 @@ export default function Registration() {
                                       onChange={editGuardian}/></label>
             <label>Last name *<input required name="lastName" autoComplete="family-name" value={guardian.lastName}
                                      onChange={editGuardian}/></label>
+            <label>Date of birth *<input required type="date" name="dateOfBirth" max={adultDateCutoffValue}
+                                         value={guardian.dateOfBirth} onChange={editGuardian}/></label>
+            <label>Gender (optional)<select name="gender" value={guardian.gender} onChange={editGuardian}>
+              <option value="">Prefer not to say / Not specified</option>
+              <option>Female</option>
+              <option>Male</option>
+              <option>Other</option>
+            </select></label>
             <label>Email address *<input required type="email" name="email" autoComplete="email" pattern="[^ @]+@[^ @]+\.[^ @]{2,}" title="Enter a valid email address, such as name@example.com" value={guardian.email}
                                          onChange={editGuardian}/></label>
             <label>Mobile number *<input required type="tel" name="phone" autoComplete="tel" inputMode="tel" pattern={phonePattern} title="Enter an international phone number, e.g. +447700900123 (no spaces)" value={guardian.phone}
@@ -220,14 +233,7 @@ export default function Registration() {
                                     onChange={editGuardian}/></label>
           </div>
           {includesSelf && <div className="registration-student">
-              <div className="registration-student-heading"><h3>{registrationType === "both" ? "Parent's learning details" : "Your learning details"}</h3></div>
               <div className="registration-grid">
-                  {(guardian.firstName.trim() || guardian.lastName.trim()) && <p className="registration-applicant-name registration-wide"><strong>Applicant:</strong> {`${guardian.firstName} ${guardian.lastName}`.trim()}</p>}
-                  <label>Date of birth *<input required type="date" max={adultDateCutoffValue}
-                                               value={selfStudent.dateOfBirth} onChange={e => setSelfStudent(s => ({
-                    ...s,
-                    dateOfBirth: e.target.value
-                   }))}/><small>Self-registration is only for people aged 18 or over. A parent or guardian must register anyone under 18.</small></label>
                   <label>Area of interest<select value={selfStudent.interests} onChange={e => setSelfStudent(s => ({
                     ...s,
                     interests: e.target.value
@@ -250,6 +256,9 @@ export default function Registration() {
                   <label className="registration-wide">Medical or additional support information (optional)<textarea
                       rows={2} value={selfStudent.medicalNotes}
                       onChange={e => setSelfStudent(s => ({...s, medicalNotes: e.target.value}))}/></label>
+                  <label className="registration-wide">{registrationType === "both" ? "Parent" : "Your"} photograph (optional — secure upload coming soon)<input
+                    type="file" accept="image/jpeg,image/png,image/webp" disabled
+                    aria-describedby="self-photo-note"/><small id="self-photo-note">Photographs will be enabled once the private storage service is connected.</small></label>
               </div>
           </div>}
         </div>
