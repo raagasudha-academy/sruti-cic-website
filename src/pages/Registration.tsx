@@ -63,6 +63,11 @@ export default function Registration() {
   // International E.164 format only: + followed by 8–15 digits in total.
   const phonePattern = "\\+[1-9][0-9]{7,14}";
   const isValidPhone = (value: string) => /^\+[1-9][0-9]{7,14}$/.test(value.trim());
+  const adultDateCutoff = new Date();
+  adultDateCutoff.setFullYear(adultDateCutoff.getFullYear() - 18);
+  const adultDateCutoffValue = `${adultDateCutoff.getFullYear()}-${String(adultDateCutoff.getMonth() + 1).padStart(2, "0")}-${String(adultDateCutoff.getDate()).padStart(2, "0")}`;
+  const minorDateMin = new Date(adultDateCutoff.getFullYear(), adultDateCutoff.getMonth(), adultDateCutoff.getDate() + 1);
+  const minorDateMinValue = `${minorDateMin.getFullYear()}-${String(minorDateMin.getMonth() + 1).padStart(2, "0")}-${String(minorDateMin.getDate()).padStart(2, "0")}`;
   const includesSelf = registrationType === "self" || registrationType === "both";
   const includesChildren = registrationType === "child" || registrationType === "both";
   const editStudent = (index: number, changes: Partial<Student>) => setStudents(current => current.map((student, i) => i === index ? {...student, ...changes} : student));
@@ -80,6 +85,16 @@ export default function Registration() {
     }
     if (!photoConsent) {
       setError("Please choose whether you consent to photography and media use.");
+      setStatus("error");
+      return;
+    }
+    if (includesSelf && (!selfStudent.dateOfBirth || selfStudent.dateOfBirth > adultDateCutoffValue)) {
+      setError("Self-registration is for people aged 18 or over. A parent or guardian must register anyone under 18.");
+      setStatus("error");
+      return;
+    }
+    if (includesChildren && students.some(student => student.dateOfBirth && student.dateOfBirth <= adultDateCutoffValue)) {
+      setError("Children must be under 18. Anyone aged 18 or over should register themselves.");
       setStatus("error");
       return;
     }
@@ -112,6 +127,8 @@ export default function Registration() {
           guardian: {...guardian, email: guardian.email.trim(), phone: guardian.phone.trim(), emergencyPhone: guardian.emergencyPhone.trim(), relationship: includesChildren ? guardian.relationship : "Self"},
           students: [...(includesSelf ? [{
             ...selfStudent,
+            firstName: guardian.firstName.trim(),
+            lastName: guardian.lastName.trim(),
             allergies: selfStudent.allergies.trim(),
             photo: null,
             applicantType: "self"
@@ -165,7 +182,7 @@ export default function Registration() {
           <p className="eyebrow">Getting started</p>
           <h2>Who are you registering?</h2>
           <div className="registration-type-options" role="radiogroup" aria-label="Who are you registering?">
-            {([["self", "Myself", "I want to join Śruti"], ["child", "My child or children", "I am registering one or more children"], ["both", "Myself and my children", "We would all like to join"]] as const).map(([value, label, detail]) => (
+            {([["self", "Myself", "I am 18 or older and want to join Śruti"], ["child", "My child or children", "I am a parent or guardian registering one or more learners under 18"], ["both", "Myself and my children", "I am 18 or older and registering myself and my children under 18"]] as const).map(([value, label, detail]) => (
               <label key={value} className={`registration-type-option${registrationType === value ? " selected" : ""}`}>
                 <input type="radio" name="registrationType" value={value} checked={registrationType === value}
                        onChange={() => setRegistrationType(value)}/>
@@ -175,7 +192,7 @@ export default function Registration() {
           </div>
         </div>
         <div className="registration-panel"><p className="eyebrow">Step 1</p>
-          <h2>{includesChildren ? "Parent or guardian" : "Your contact details"}</h2><p>We will use these details to
+          <h2>{includesChildren ? "Parent or guardian details" : "Your contact and learning details"}</h2><p>We will use these details to
             contact you about the application.</p>
           <div className="registration-grid">
             <label>First name *<input required name="firstName" autoComplete="given-name" value={guardian.firstName}
@@ -202,25 +219,15 @@ export default function Registration() {
             <label>Postcode *<input required name="postcode" autoComplete="postal-code" value={guardian.postcode}
                                     onChange={editGuardian}/></label>
           </div>
-        </div>
-        <div className="registration-panel"><p className="eyebrow">Step 2</p>
-          <h2>{includesChildren ? "Learner details" : "Your learning details"}</h2>
           {includesSelf && <div className="registration-student">
-              <div className="registration-student-heading"><h3>My learning application</h3></div>
+              <div className="registration-student-heading"><h3>{registrationType === "both" ? "Parent's learning details" : "Your learning details"}</h3></div>
               <div className="registration-grid">
-                  <label>First name *<input required value={selfStudent.firstName} onChange={e => setSelfStudent(s => ({
-                    ...s,
-                    firstName: e.target.value
-                  }))}/></label>
-                  <label>Last name *<input required value={selfStudent.lastName} onChange={e => setSelfStudent(s => ({
-                    ...s,
-                    lastName: e.target.value
-                  }))}/></label>
-                  <label>Date of birth *<input required type="date" max={new Date().toISOString().slice(0, 10)}
+                  {(guardian.firstName.trim() || guardian.lastName.trim()) && <p className="registration-applicant-name registration-wide"><strong>Applicant:</strong> {`${guardian.firstName} ${guardian.lastName}`.trim()}</p>}
+                  <label>Date of birth *<input required type="date" max={adultDateCutoffValue}
                                                value={selfStudent.dateOfBirth} onChange={e => setSelfStudent(s => ({
                     ...s,
                     dateOfBirth: e.target.value
-                  }))}/></label>
+                   }))}/><small>Self-registration is only for people aged 18 or over. A parent or guardian must register anyone under 18.</small></label>
                   <label>Area of interest<select value={selfStudent.interests} onChange={e => setSelfStudent(s => ({
                     ...s,
                     interests: e.target.value
@@ -245,60 +252,62 @@ export default function Registration() {
                       onChange={e => setSelfStudent(s => ({...s, medicalNotes: e.target.value}))}/></label>
               </div>
           </div>}
-          {includesChildren && <><p>Add each child who wishes to join Śruti.</p>
-            {students.map((student, index) => <div className="registration-student" key={index}>
-              <div className="registration-student-heading"><h3>Student {index + 1}</h3>{students.length > 1 &&
-                  <button className="registration-remove" type="button"
-                          onClick={() => setStudents(current => current.filter((_, i) => i !== index))}><Trash2
-                      size={16}/> Remove</button>}</div>
-              <div className="registration-grid">
-                <label>First name *<input required value={student.firstName}
-                                          onChange={e => editStudent(index, {firstName: e.target.value})}/></label>
-                <label>Last name *<input required value={student.lastName}
-                                         onChange={e => editStudent(index, {lastName: e.target.value})}/></label>
-                <label>Date of birth *<input required type="date" max={new Date().toISOString().slice(0, 10)}
-                                             value={student.dateOfBirth}
-                                             onChange={e => editStudent(index, {dateOfBirth: e.target.value})}/></label>
-                <label>Gender (optional)<select value={student.gender}
-                                                onChange={e => editStudent(index, {gender: e.target.value})}>
-                  <option value="">Prefer not to say / Not specified</option>
-                  <option>Female</option>
-                  <option>Male</option>
-                  <option>Other</option>
-                </select></label>
-                <label>School (optional)<input value={student.school}
-                                               onChange={e => editStudent(index, {school: e.target.value})}/></label>
-                <label>Area of interest<select value={student.interests}
-                                               onChange={e => editStudent(index, {interests: e.target.value})}>
-                  <option value="">Select an option</option>
-                  <option>Vedam</option>
-                  <option>Chanting</option>
-                  <option>Vedanta</option>
-                  <option>Other / Not sure</option>
-                </select></label>
-                <label className="registration-wide">Previous learning or experience<textarea rows={2}
-                                                                                              value={student.experience}
-                                                                                              onChange={e => editStudent(index, {experience: e.target.value})}/></label>
-                <label className="registration-wide">Food allergies * (write “None” if applicable)<textarea required rows={2}
-                                                                                                     value={student.allergies}
-                                                                                                     onChange={e => editStudent(index, {allergies: e.target.value})}/></label>
-                <label className="registration-wide">Medical or additional support information (optional)<textarea
-                  rows={2} value={student.medicalNotes}
-                  onChange={e => editStudent(index, {medicalNotes: e.target.value})}/></label>
-                <label className="registration-wide">Student photograph (optional — secure upload coming soon)<input
-                  type="file" accept="image/jpeg,image/png,image/webp" disabled
-                  aria-describedby={`photo-note-${index}`}/><small id={`photo-note-${index}`}>Photographs will be
-                  enabled once the private storage service is connected.</small></label>
-              </div>
-            </div>)}
-              <button type="button" className="button button-outline"
-                      onClick={() => setStudents(current => [...current, blankStudent()])}><Plus size={17}/> Add another
-                  child
-              </button>
-          </>}
         </div>
+        {includesChildren && <div className="registration-panel">
+          <p className="eyebrow">Step 2</p>
+          <h2>Child details</h2>
+          <p>Add each child under 18 who wishes to join Śruti.</p>
+          {students.map((student, index) => <div className="registration-student" key={index}>
+            <div className="registration-student-heading"><h3>Student {index + 1}</h3>{students.length > 1 &&
+              <button className="registration-remove" type="button"
+                      onClick={() => setStudents(current => current.filter((_, i) => i !== index))}><Trash2
+                size={16}/> Remove</button>}</div>
+            <div className="registration-grid">
+              <label>First name *<input required value={student.firstName}
+                                        onChange={e => editStudent(index, {firstName: e.target.value})}/></label>
+              <label>Last name *<input required value={student.lastName}
+                                       onChange={e => editStudent(index, {lastName: e.target.value})}/></label>
+              <label>Date of birth *<input required type="date" min={minorDateMinValue} max={new Date().toISOString().slice(0, 10)}
+                                           value={student.dateOfBirth}
+                                           onChange={e => editStudent(index, {dateOfBirth: e.target.value})}/></label>
+              <label>Gender (optional)<select value={student.gender}
+                                              onChange={e => editStudent(index, {gender: e.target.value})}>
+                <option value="">Prefer not to say / Not specified</option>
+                <option>Female</option>
+                <option>Male</option>
+                <option>Other</option>
+              </select></label>
+              <label>School (optional)<input value={student.school}
+                                             onChange={e => editStudent(index, {school: e.target.value})}/></label>
+              <label>Area of interest<select value={student.interests}
+                                             onChange={e => editStudent(index, {interests: e.target.value})}>
+                <option value="">Select an option</option>
+                <option>Vedam</option>
+                <option>Chanting</option>
+                <option>Vedanta</option>
+                <option>Other / Not sure</option>
+              </select></label>
+              <label className="registration-wide">Previous learning or experience<textarea rows={2}
+                                                                                            value={student.experience}
+                                                                                            onChange={e => editStudent(index, {experience: e.target.value})}/></label>
+              <label className="registration-wide">Food allergies * (write “None” if applicable)<textarea required rows={2}
+                                                                                                   value={student.allergies}
+                                                                                                   onChange={e => editStudent(index, {allergies: e.target.value})}/></label>
+              <label className="registration-wide">Medical or additional support information (optional)<textarea
+                rows={2} value={student.medicalNotes}
+                onChange={e => editStudent(index, {medicalNotes: e.target.value})}/></label>
+              <label className="registration-wide">Student photograph (optional — secure upload coming soon)<input
+                type="file" accept="image/jpeg,image/png,image/webp" disabled
+                aria-describedby={`photo-note-${index}`}/><small id={`photo-note-${index}`}>Photographs will be
+                enabled once the private storage service is connected.</small></label>
+            </div>
+          </div>)}
+          <button type="button" className="button button-outline"
+                  onClick={() => setStudents(current => [...current, blankStudent()])}><Plus size={17}/> Add another child
+          </button>
+        </div>}
         <div className="registration-panel">
-          <p className="eyebrow">Step 3</p>
+          <p className="eyebrow">Step {includesChildren ? "3" : "2"}</p>
           <h2>Emergency contact</h2>
           <p>Please provide someone we can contact in an emergency.</p>
           <div className="registration-grid">
@@ -313,7 +322,7 @@ export default function Registration() {
             </label>
           </div>
         </div>
-        <div className="registration-panel"><p className="eyebrow">Step 4</p><h2>Confirm & submit</h2>
+        <div className="registration-panel"><p className="eyebrow">Step {includesChildren ? "4" : "3"}</p><h2>Confirm & submit</h2>
           <label className="registration-wide">Anything else you would like us to know?<textarea name="additionalNotes"
                                                                                                  rows={3}
                                                                                                  value={guardian.additionalNotes}
