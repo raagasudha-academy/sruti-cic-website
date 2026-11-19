@@ -19,7 +19,7 @@ export default function Testimonials() {
             chant with such clarity and patience inspired me to join the
             classes and it’s been one of my best decisions. Kailash ji’s
             Thursday talks always leave me feeling positive and enriched. I’m
-            grateful to them both for sharing their gifts and making Śruti such
+            grateful to them both for sharing their knowledge and making Śruti such
             an uplifting community.
           </blockquote>
           <p className="sruti-testimonial-byline">Minni Arumugam</p>
