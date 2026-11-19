@@ -12,6 +12,7 @@ import Lyrics from "./pages/Lyrics";
 import useBrowserRoute from "./hooks/useBrowserRoute";
 import ChatWidget from "./components/ChatWidget";
 import Registration from "./pages/Registration";
+import Testimonials from "./pages/Testimonials";
 
 const pages = {
   "/register": { title: "Student registration", component: Registration },
@@ -30,6 +31,10 @@ const pages = {
   "/community": {
     title: "Community",
     component: Community,
+  },
+  "/testimonials": {
+    title: "Testimonials",
+    component: Testimonials,
   },
   "/directors": {
     title: "Our Directors",

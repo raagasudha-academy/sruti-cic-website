@@ -1,0 +1,67 @@
+.sruti-testimonial-section {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 24px;
+}
+
+.sruti-testimonial-card {
+  position: relative;
+  width: 100%;
+  padding: 30px 32px;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--color-accent);
+  border-radius: 18px;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+}
+
+.sruti-testimonial-card::before {
+  content: "“";
+  position: absolute;
+  top: -28px;
+  right: 18px;
+  color: rgba(156, 47, 34, 0.07);
+  font-family: "Libre Baskerville", serif;
+  font-size: 150px;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.sruti-testimonial-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.sruti-testimonial-card .eyebrow {
+  margin-bottom: 16px;
+  color: var(--color-accent-text);
+}
+
+.sruti-testimonial-card blockquote {
+  margin: 0;
+  color: var(--color-text);
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+.sruti-testimonial-byline {
+  margin: 22px 0 0;
+  color: var(--color-primary);
+  font-weight: 750;
+}
+
+@media (max-width: 640px) {
+  .sruti-testimonial-section {
+    grid-template-columns: 1fr;
+  }
+
+  .sruti-testimonial-card {
+    padding: 26px 24px;
+  }
+
+  .sruti-testimonial-card blockquote {
+    font-size: 1rem;
+  }
+}
